@@ -1,4 +1,4 @@
-package com.teamnexters.lastwednesday.Fragment;
+package com.teamnexters.lastwednesday.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,10 +11,11 @@ import android.view.ViewGroup;
  * Created by JY on 2018-01-10.
  */
 
-public class HistoryFragment extends Fragment {
+public class TicketFragment extends Fragment {
 
-    public static HistoryFragment newInstance() {
-        HistoryFragment fragment = new HistoryFragment();
+
+    public static TicketFragment newInstance() {
+        TicketFragment fragment = new TicketFragment();
 
         return fragment;
     }

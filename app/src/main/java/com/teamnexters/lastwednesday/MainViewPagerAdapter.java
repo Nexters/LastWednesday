@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.teamnexters.lastwednesday.Fragment.HistoryFragment;
-import com.teamnexters.lastwednesday.Fragment.MainFragment;
-import com.teamnexters.lastwednesday.Fragment.TicketFragment;
+import com.teamnexters.lastwednesday.fragment.HistoryFragment;
+import com.teamnexters.lastwednesday.fragment.MainFragment;
+import com.teamnexters.lastwednesday.fragment.TicketFragment;
 
 /**
  * Created by JY on 2018-01-10.
