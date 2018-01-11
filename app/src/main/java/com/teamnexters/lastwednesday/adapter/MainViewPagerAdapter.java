@@ -1,4 +1,4 @@
-package com.teamnexters.lastwednesday;
+package com.teamnexters.lastwednesday.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +10,8 @@ import com.teamnexters.lastwednesday.fragment.TicketFragment;
 
 /**
  * Created by JY on 2018-01-10.
+ *
+ * Edited by Hyunsik on 2018-01-11.
  */
 
 public class MainViewPagerAdapter extends FragmentPagerAdapter {
@@ -28,8 +30,10 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
                 return MainFragment.newInstance();
             case 2:
                 return HistoryFragment.newInstance();
+            default:
+                return  MainFragment.newInstance();
+
         }
-        return null;
     }
 
     @Override

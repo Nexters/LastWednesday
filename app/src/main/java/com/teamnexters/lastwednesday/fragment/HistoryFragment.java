@@ -7,14 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.teamnexters.lastwednesday.R;
+
 /**
  * Created by JY on 2018-01-10.
+ *
+ * Edited by Hyunsik on 2018-01-11.
  */
 
 public class HistoryFragment extends Fragment {
 
     public static HistoryFragment newInstance() {
         HistoryFragment fragment = new HistoryFragment();
+        Bundle bundle = new Bundle();
+        fragment.setArguments(bundle);
 
         return fragment;
     }
@@ -27,6 +33,8 @@ public class HistoryFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View rootView = inflater.inflate(R.layout.fragment_history, container, false);
+
+        return rootView;
     }
 }
