@@ -2,6 +2,8 @@ package com.teamnexters.lastwednesday.model;
 
 import java.util.Date;
 
+import lombok.Data;
+
 /**
  * Created by JY on 2018-01-12.
  */
@@ -9,6 +11,7 @@ import java.util.Date;
 /**
  * 티켓 정보 담을 클래스
  */
+@Data
 public class Ticket {
 
     private String title;
@@ -22,27 +25,4 @@ public class Ticket {
     }
 
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getShowTime() {
-        return showTime;
-    }
-
-    public void setShowTime(Date showTime) {
-        this.showTime = showTime;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }
