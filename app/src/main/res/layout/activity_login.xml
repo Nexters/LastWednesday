@@ -5,57 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment..LogInFragment">
+    tools:context=".activity.LogInActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/prof_section"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp">
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/prof_pic"
-            android:src="@drawable/photo"
-            />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:id="@+id/name"
-                android:layout_gravity="center"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="E-mail"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:id="@+id/email"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Logout"
-                android:id="@+id/bn_logout"/>
-        </LinearLayout>
-
-
-    </LinearLayout>
 
     <com.google.android.gms.common.SignInButton
         android:layout_width="match_parent"
