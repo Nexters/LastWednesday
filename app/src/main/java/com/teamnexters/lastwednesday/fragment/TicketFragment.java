@@ -1,22 +1,36 @@
 package com.teamnexters.lastwednesday.fragment;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.teamnexters.lastwednesday.R;
+import com.teamnexters.lastwednesday.fragment.adapter.TicketAdapter;
+import com.teamnexters.lastwednesday.databinding.FragmentTicketBinding;
+import com.teamnexters.lastwednesday.model.Ticket;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by JY on 2018-01-10.
- *
+ * <p>
  * Edited by Hyunsik on 2018-01-11.
  */
 
 public class TicketFragment extends Fragment {
 
+    FragmentTicketBinding binding;
+
+    private LinearLayoutManager layoutManager;
+    private TicketAdapter adapter;
+    private List<Ticket> dataSet;
 
     public static TicketFragment newInstance() {
         TicketFragment fragment = new TicketFragment();
@@ -29,13 +43,29 @@ public class TicketFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dataSet = new ArrayList<>();
+        dataSet.add(new Ticket("옥탑방고양이", 19000, new Date())); //임시데이터
+        dataSet.add(new Ticket("넌센스2", 38000, new Date()));
+        dataSet.add(new Ticket("랄랄랄라 룰룰루",47000, new Date()));
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_ticket, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ticket, container, false);
+        binding.setTicket(this);
+        View view = binding.getRoot();
 
-        return rootView;
+        layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        adapter = new TicketAdapter(dataSet);
+
+        binding.recyclerviewTicket.setLayoutManager(layoutManager);
+        binding.recyclerviewTicket.setHasFixedSize(true);
+        binding.recyclerviewTicket.setAdapter(adapter);
+
+        return view;
     }
 }
