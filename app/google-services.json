@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "964138090496",
+    "project_id": "lastwednesday-191805"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964138090496:android:2fd356e9836067c9",
+        "android_client_info": {
+          "package_name": "com.teamnexters.lastwednesday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964138090496-cs031almk89doq1no3jf9o2pcisjhdie.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "964138090496-ueb0pmmhkmg7q6c54vr5gi6u96dj26l9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.teamnexters.lastwednesday",
+            "certificate_hash": "9909fe778bb8ae6b00465f693dc0883d3b91d5e1"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeTugQPR2KSQU2OIinEWoaiW8TJG08qoY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
