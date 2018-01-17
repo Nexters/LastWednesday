@@ -6,17 +6,16 @@ import lombok.Data;
 import lombok.NonNull;
 
 /**
- * Created by JY on 2018-01-12.
+ * Created by JY on 2018-01-16.
  */
-
 /**
- * 티켓 정보 담을 클래스
+ * 리뷰 담을 클래스
  */
 @Data(staticConstructor = "of")
-public class Ticket {
+public class Review {
 
     @NonNull private String title;
-    @NonNull private double price;
-    @NonNull private Date showTime;
-
+    @NonNull private String content;
+    @NonNull private double star;
+    @NonNull private Date writeDate;
 }

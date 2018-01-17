@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="obj"
+            type="com.teamnexters.lastwednesday.model.Review"
+            />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorWhite"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"
+        >
+
+        <TextView
+            android:id="@+id/textview_title"
+            style="@style/ConstraintTop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{obj.title}"
+            />
+
+        <TextView
+            android:id="@+id/textview_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@{obj.content}"
+            app:layout_constraintTop_toBottomOf="@+id/textview_title"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textview_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textview_content"
+            android:text="@{String.valueOf(obj.star)}"
+            />
+
+
+        <TextView
+            android:id="@+id/textview_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{obj.writeDate}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

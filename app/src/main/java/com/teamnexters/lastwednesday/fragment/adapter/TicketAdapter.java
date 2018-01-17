@@ -43,7 +43,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         return (dataSet != null ?  dataSet.size() : 0);
     }
 
-    class TicketViewHolder extends RecyclerView.ViewHolder {
+    static class TicketViewHolder extends RecyclerView.ViewHolder {
 
         ItemTicketBinding binding;
 

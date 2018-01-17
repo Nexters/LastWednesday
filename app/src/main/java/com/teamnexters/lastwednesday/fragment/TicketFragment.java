@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.teamnexters.lastwednesday.R;
-import com.teamnexters.lastwednesday.fragment.adapter.TicketAdapter;
 import com.teamnexters.lastwednesday.databinding.FragmentTicketBinding;
+import com.teamnexters.lastwednesday.fragment.adapter.TicketAdapter;
 import com.teamnexters.lastwednesday.model.Ticket;
 
 import java.util.ArrayList;
@@ -43,11 +43,6 @@ public class TicketFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        dataSet = new ArrayList<>();
-        dataSet.add(new Ticket("옥탑방고양이", 19000, new Date())); //임시데이터
-        dataSet.add(new Ticket("넌센스2", 38000, new Date()));
-        dataSet.add(new Ticket("랄랄랄라 룰룰루",47000, new Date()));
     }
 
     @Nullable
@@ -57,15 +52,23 @@ public class TicketFragment extends Fragment {
         binding.setTicket(this);
         View view = binding.getRoot();
 
+        initRecyclerview();
+
+        dataSet = new ArrayList<>();
+        dataSet.add(Ticket.of("옥탑방고양이", 19000, new Date())); //임시데이터
+        dataSet.add(Ticket.of("넌센스2", 38000, new Date()));
+        dataSet.add(Ticket.of("랄랄랄라 룰룰루",47000, new Date()));
+
+        return view;
+    }
+    private void initRecyclerview() {
         layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         adapter = new TicketAdapter(dataSet);
 
-        binding.recyclerviewTicket.setLayoutManager(layoutManager);
-        binding.recyclerviewTicket.setHasFixedSize(true);
-        binding.recyclerviewTicket.setAdapter(adapter);
-
-        return view;
+        binding.recyclerTicket.setLayoutManager(layoutManager);
+        binding.recyclerTicket.setHasFixedSize(true);
+        binding.recyclerTicket.setAdapter(adapter);
     }
 }
