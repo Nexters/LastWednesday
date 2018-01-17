@@ -32,7 +32,6 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
                 return HistoryFragment.newInstance();
             default:
                 return  MainFragment.newInstance();
-
         }
     }
 
