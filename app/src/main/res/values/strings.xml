@@ -2,20 +2,4 @@
     <string name="app_name">LastWednesday</string>
     <string name="facebook_app_id">212782095949337</string>
     <string name="fb_login_protocol_scheme">fb212782095949337</string>
-    <string-array name="array_plays">
-        <item>광화문 연가</item>
-        <item>금발이 너무해</item>
-        <item>누가 내머리에 똥쌌어?</item>
-        <item>우리 아이가 달라졌어요</item>
-        <item>옥탑방 고양이</item>
-        <item>캣츠 : 내한공연</item>
-        <item>빌리 엘리엇</item>
-        <item>김종욱 찾기</item>
-        <item>공룡이 살아있다</item>
-        <item>라나 델 레이 : LA TO The MOON</item>
-        <item>복순이할배</item>
-        <item>춤추는 꼬마공주 소피아</item>
-        <item>김광석뮤지컬 : 마흔즈음에</item>
-        <item>오즈의 마법사</item>
-    </string-array>
 </resources>
