@@ -7,16 +7,33 @@
             type="com.teamnexters.lastwednesday.fragment.TicketFragment"/>
     </data>
 
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_ticket"
-        style="@style/ConstraintCenter"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-      />
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include
+                android:id="@+id/toolbar_search"
+                layout="@layout/toolbar_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolbar_search">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_ticket"
+                    style="@style/ConstraintCenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 </layout>
