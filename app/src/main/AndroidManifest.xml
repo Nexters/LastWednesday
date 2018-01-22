@@ -12,9 +12,7 @@
         <activity android:name=".activity.LogInActivity">
 
         </activity>
-        <activity android:name=".activity.SearchActivity"
-            android:theme = "@style/SearchTheme"
-            android:label = "뮤지컬을 검색하세요">
+        <activity android:name=".activity.SearchActivity">
 
         </activity>
 
