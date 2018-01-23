@@ -1,4 +1,4 @@
-package com.teamnexters.lastwednesday;
+package com.teamnexters.lastwednesday.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.teamnexters.lastwednesday.R;
 import com.teamnexters.lastwednesday.adapter.MainViewPagerAdapter;
+import com.teamnexters.lastwednesday.fragment.anim.RevolvingPageTransformer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(mContext);
 
         mAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.viewpager_main);
+        mViewPager = findViewById(R.id.viewpager_main);
         mViewPager.setAdapter(mAdapter);
         mViewPager.setCurrentItem(1);
+        mViewPager.setPageTransformer(true, new RevolvingPageTransformer());
     }
     @Override
     public void onBackPressed(){
