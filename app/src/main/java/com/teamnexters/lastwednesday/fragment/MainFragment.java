@@ -1,9 +1,9 @@
 package com.teamnexters.lastwednesday.fragment;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,6 +20,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.teamnexters.lastwednesday.R;
 import com.teamnexters.lastwednesday.activity.LogInActivity;
 import com.teamnexters.lastwednesday.activity.SearchActivity;
+import com.teamnexters.lastwednesday.databinding.FragmentMainBinding;
 
 /**
  * Created by JY on 2018-01-10.
@@ -29,10 +30,11 @@ import com.teamnexters.lastwednesday.activity.SearchActivity;
 
 public class MainFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
+    FragmentMainBinding binding;
+
     private GoogleApiClient googleApiClient;
     private Button SignOut;
     private Button SearchPlays;
-    Context mContext;
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
@@ -42,32 +44,31 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
         return fragment;
     }
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = getActivity();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        SearchPlays = (Button) rootView.findViewById(R.id.search_plays);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
+        View rootView = binding.getRoot();
+        binding.setMain(this);
+
+        SearchPlays = rootView.findViewById(R.id.search_plays);
         SearchPlays.setOnClickListener(this);
 
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleApiClient = new GoogleApiClient.Builder(getActivity()).addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();
         googleApiClient.connect();
-        SignOut = (Button) rootView.findViewById(R.id.bn_logout);
+        SignOut = rootView.findViewById(R.id.btn_logout);
         SignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onLogoutPressed();
             }
         });
-
-
         return rootView;
     }
 
@@ -75,7 +76,8 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-    public void onLogoutPressed(){
+
+    public void onLogoutPressed() {
         new AlertDialog.Builder(getActivity()).setTitle("Exit").setMessage("로그아웃 하시겠습니까?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -96,4 +98,9 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
         Intent intent = new Intent(getActivity(), SearchActivity.class);
         startActivity(intent);
     }
+
+
+
+
 }
+
