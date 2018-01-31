@@ -21,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.teamnexters.lastwednesday.MainActivity;
 import com.teamnexters.lastwednesday.R;
 
 /**

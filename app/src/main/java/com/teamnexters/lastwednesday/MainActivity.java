@@ -1,4 +1,4 @@
-package com.teamnexters.lastwednesday.activity;
+package com.teamnexters.lastwednesday;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,10 +6,8 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.teamnexters.lastwednesday.R;
 import com.teamnexters.lastwednesday.adapter.MainViewPagerAdapter;
 import com.teamnexters.lastwednesday.fragment.anim.RevolvingPageTransformer;
 
