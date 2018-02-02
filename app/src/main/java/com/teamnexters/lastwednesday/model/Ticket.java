@@ -2,8 +2,8 @@ package com.teamnexters.lastwednesday.model;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NonNull;
 
 /**
  * Created by JY on 2018-01-12.
@@ -12,11 +12,12 @@ import lombok.NonNull;
 /**
  * 티켓 정보 담을 클래스
  */
-@Data(staticConstructor = "of")
+@Data
+@AllArgsConstructor(staticName = "of")
 public class Ticket {
 
-    @NonNull private String title;
-    @NonNull private double price;
-    @NonNull private Date showTime;
+    private String title;
+    private double price;
+    private Date showTime;
 
 }
