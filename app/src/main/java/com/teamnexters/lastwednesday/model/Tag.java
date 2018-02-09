@@ -8,7 +8,7 @@ import lombok.Data;
  * 통신 테스트를 위한 임시클래스 입니다.
  */
 @Data
-@AllArgsConstructor (staticName = "of")
+@AllArgsConstructor(staticName = "of")
 public class Tag {
     String name;
     String fullName;

@@ -47,6 +47,7 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Nullable
@@ -98,8 +99,6 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
         Intent intent = new Intent(getActivity(), SearchActivity.class);
         startActivity(intent);
     }
-
-
 
 
 }

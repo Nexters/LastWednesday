@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+
 import com.teamnexters.lastwednesday.R;
 import com.teamnexters.lastwednesday.adapter.SearchAdapter;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * Created by user on 2018-01-21.
  */
 
-public class SearchActivity extends AppCompatActivity{
+public class SearchActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     public EditText search;
     private List<String> list = new ArrayList<String>();
@@ -28,17 +29,18 @@ public class SearchActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        search = (EditText) findViewById( R.id.search);
+        search = (EditText) findViewById(R.id.search);
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerViewPlays);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         playList();
-        mAdapter = new SearchAdapter(list,this);
+        mAdapter = new SearchAdapter(list, this);
         mRecyclerView.setAdapter(mAdapter);
 
         addTextListener();
     }
-    public void playList(){
+
+    public void playList() {
         list.add("광화문 연가");
         list.add("금발이 너무해");
         list.add("누가 내머리에 똥쌌어?");
@@ -55,10 +57,15 @@ public class SearchActivity extends AppCompatActivity{
         list.add("오즈의 마법사");
 
     }
-    public void addTextListener(){
+
+    public void addTextListener() {
         search.addTextChangedListener(new TextWatcher() {
-            public void afterTextChanged(Editable s) {}
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void afterTextChanged(Editable s) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             public void onTextChanged(CharSequence query, int start, int before, int count) {
                 query = query.toString().toLowerCase();
                 final List<String> filteredList = new ArrayList<>();
