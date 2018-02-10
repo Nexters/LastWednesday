@@ -50,6 +50,7 @@
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
         android:layout_marginBottom="9dp"
+        android:visibility="gone"
         >
     <android.support.constraint.ConstraintLayout
         android:layout_width = "match_parent"
@@ -193,6 +194,7 @@
             android:text = "@string/star"
             android:textSize = "10sp"
             android:padding="8dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf = "parent"
             app:layout_constraintEnd_toEndOf = "parent"
             app:layout_constraintHorizontal_bias = "0.4"
