@@ -7,22 +7,27 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp">
 
+    <ImageButton
+        android:id="@+id/backtosearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_back" />
 
     <EditText
         android:id="@+id/search"
-        android:layout_width="330dp"
+        android:layout_width="350dp"
         android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center_vertical"
+        android:layout_toEndOf="@+id/searchresult"
         android:background="@drawable/searchshape"
-        android:drawableLeft="@drawable/ic_search"
         android:drawablePadding="5dp"
         android:hint="검색어를 입력해주세요"
-        android:singleLine="true"
         android:paddingLeft="14.7dp"
         android:paddingRight="14.7dp"
+        android:singleLine="true"
         android:textSize="16sp" />
 
 
@@ -37,14 +42,15 @@
         android:background="#e5e5e5" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/searchresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/border"
         android:layout_marginTop="11dp"
-        android:textSize="10sp"
-        android:text="최근 검색한 작품" />
+        android:textSize="12sp"
+        android:textColor="@color/cBlack"
+        android:text="검색결과" />
 
 
     <android.support.v7.widget.RecyclerView
@@ -53,7 +59,7 @@
         android:scrollbars="vertical"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/searchresult"
         android:layout_weight="1">
 
 

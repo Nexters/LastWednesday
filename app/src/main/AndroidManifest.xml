@@ -16,9 +16,11 @@
         <activity android:name=".activity.LogInActivity">
 
         </activity>
+        <activity android:name=".activity.RecentSearchActivity"></activity>
         <activity android:name=".activity.SearchActivity">
 
         </activity>
+
 
         <activity android:name=".MainActivity">
             <intent-filter>
