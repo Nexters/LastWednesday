@@ -7,17 +7,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 
 import com.teamnexters.lastwednesday.R;
+import com.teamnexters.lastwednesday.fragment.adapter.SearchAdapter;
+import com.teamnexters.lastwednesday.model.MyData;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,63 +76,4 @@ public class SearchActivity extends AppCompatActivity {    private RecyclerView 
     }
 }
 
-class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHolder> {
-    private List<MyData> mDataset;
-
-    public SearchAdapter(List<MyData> myDataset) {
-        mDataset = myDataset;
-    }
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public ImageView mImageView;
-        public TextView mplaytitle;
-        public TextView mplaydate;
-        public TextView mplayplace;
-
-        public MyViewHolder(View itemLayoutView) {
-            super(itemLayoutView);
-            mImageView = (ImageView) itemLayoutView.findViewById(R.id.poster);
-            mplaytitle = (TextView) itemLayoutView.findViewById(R.id.play_title);
-            mplaydate = (TextView)itemLayoutView.findViewById(R.id.play_date);
-            mplayplace = (TextView)itemLayoutView.findViewById(R.id.play_place);
-
-        }
-    }
-
-
-    @Override
-    public SearchAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.plays_cardview, null);
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-        return myViewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(final SearchAdapter.MyViewHolder viewHolder, final int position) {
-        viewHolder.mplaytitle.setText(mDataset.get(position).text);
-        viewHolder.mplaydate.setText(mDataset.get(position).text2);
-        viewHolder.mplayplace.setText(mDataset.get(position).text3);
-        viewHolder.mImageView.setImageResource(mDataset.get(position).img);
-    }
-
-
-
-    @Override
-    public int getItemCount() {
-        return mDataset.size();
-    }
-}
-
-
-class MyData{
-    public String text, text2, text3;
-    public int img;
-    public MyData(String text, String text2, String text3, int img){
-        this.text = text;
-        this.text2 = text2;
-        this.text3 = text3;
-        this.img=img;
-    }
-}
 
