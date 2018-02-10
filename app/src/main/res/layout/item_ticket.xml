@@ -1,59 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
     >
+
     <data>
+
         <variable
-            name="obj"
-            type="com.teamnexters.lastwednesday.model.Ticket"
+            name = "obj"
+            type = "com.teamnexters.lastwednesday.model.Ticket"
             />
     </data>
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/colorWhite"
-        android:padding="8dp"
-        android:layout_marginBottom="8dp"
+
+    <com.ramotion.foldingcell.FoldingCell
+        android:id = "@+id/folding_ticket"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        app:backSideColor = "#F4F4F4"
         >
 
-        <ImageView
-            android:id="@+id/image_ticket"
-            android:layout_width="70dp"
-            android:layout_height="0dp"
-            android:background="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+        <include
+            layout = "@layout/item_cell_content_ticket"
+            app:age = "@{obj.age}"
+            app:casts = "@{obj.casts}"
+            app:concertHall = "@{obj.concertHall}"
+            app:crews = "@{obj.crews}"
+            app:date = "@{obj.date}"
+            app:genre = "@{obj.genre}"
+            app:running = "@{obj.running}"
+            app:title = "@{obj.title}"
             />
 
-        <TextView
-            android:id="@+id/text_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@{obj.title}"
-            app:layout_constraintStart_toEndOf="@+id/image_ticket"
-            app:layout_constraintTop_toTopOf="@+id/image_ticket"
+        <include
+            layout = "@layout/item_cell_title_ticket"
+            app:concertHall = "@{obj.concertHall}"
+            app:date = "@{obj.date}"
+            app:title = "@{obj.title}"
             />
+    </com.ramotion.foldingcell.FoldingCell>
 
-        <TextView
-            android:id="@+id/text_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{obj.price}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/text_title"
-            />
-
-        <TextView
-            android:id="@+id/text_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{obj.showTime}"
-            app:layout_constraintStart_toStartOf="@+id/text_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_title"
-            />
-
-    </android.support.constraint.ConstraintLayout>
 </layout>
