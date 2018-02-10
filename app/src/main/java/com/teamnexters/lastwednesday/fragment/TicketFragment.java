@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.teamnexters.lastwednesday.R;
+import com.teamnexters.lastwednesday.activity.RecentSearchActivity;
 import com.teamnexters.lastwednesday.activity.SearchActivity;
 import com.teamnexters.lastwednesday.databinding.FragmentTicketBinding;
 import com.teamnexters.lastwednesday.fragment.adapter.TicketAdapter;
@@ -84,7 +85,7 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        Intent intent = new Intent(getActivity(), RecentSearchActivity.class);
         startActivity(intent);
     }
 }

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
 
 
     <EditText
-        android:id="@+id/search2"
-        android:layout_width="300dp"
+        android:id="@+id/searchbar"
+        android:layout_width="330dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center_vertical"
         android:background="@drawable/searchshape"
+        android:drawableLeft="@drawable/ic_search"
         android:drawablePadding="5dp"
-        android:layout_marginLeft="40dp"
+        android:focusable="false"
+        android:clickable="true"
+        android:hint="검색어를 입력해주세요"
         android:singleLine="true"
         android:paddingLeft="14.7dp"
         android:paddingRight="14.7dp"
@@ -28,44 +29,40 @@
 
 
     <View
-        android:id="@+id/border2"
+        android:id="@+id/border"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/search2"
+        android:layout_below="@+id/searchbar"
         android:layout_marginTop="11dp"
         android:background="#e5e5e5" />
 
     <TextView
-        android:id="@+id/searchresult2"
+        android:id="@+id/searchresulttext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/border2"
+        android:layout_below="@+id/border"
         android:layout_marginTop="11dp"
-        android:textSize="10sp"
-        android:text="검색결과" />
+        android:textSize="12sp"
+        android:textColor="@color/cBlack"
+        android:text="최근 검색한 작품" />
+
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/RecyclerViewPlays"
+        android:id="@+id/RecyclerViewRecentPlays"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/searchresult2"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/searchresulttext"
+        android:layout_marginTop="17dp"
+        android:layout_weight="1"
+        android:scrollbars="horizontal">
 
 
     </android.support.v7.widget.RecyclerView>
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/border2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="#00ffffff"
-        app:srcCompat="@drawable/ic_back" />
 
 
 </RelativeLayout>

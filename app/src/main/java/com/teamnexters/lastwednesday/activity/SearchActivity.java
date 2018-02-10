@@ -1,13 +1,19 @@
 package com.teamnexters.lastwednesday.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telecom.Call;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 import com.teamnexters.lastwednesday.R;
@@ -23,7 +29,9 @@ import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {    private RecyclerView mRecyclerView;
     public EditText search;
+    public ImageButton Backtosearch;
     public SearchAdapter mAdapter;
+    public TextView searchresults;
     private List<MyData> myDataset;
     private RecyclerView.LayoutManager mLayoutManger;
 
@@ -31,15 +39,29 @@ public class SearchActivity extends AppCompatActivity {    private RecyclerView 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        search = (EditText) findViewById(R.id.search);
-        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerViewPlays);
+
+        search = findViewById(R.id.search);
+        searchresults = findViewById(R.id.searchresult);
+        Backtosearch = findViewById(R.id.backtosearch);
+        mRecyclerView = findViewById(R.id.RecyclerViewPlays);
+
         mRecyclerView.setHasFixedSize(true);
         mLayoutManger = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManger);
+
         myDataset = new ArrayList<>();
         mAdapter = new SearchAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
+        Backtosearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchActivity.this, RecentSearchActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                finish();
+            }
+        });
         myDataset.add(new MyData("Wicked", "2018.00.00~2018.00.00", "Seoul", R.drawable.ic_back));
         myDataset.add(new MyData("Starbucks", "2018.00.00~2018.00.00", "no outlets", R.drawable.ic_back));
         myDataset.add(new MyData("Ediya", "2018.00.00~2018.00.00", "almost everywhere", R.drawable.ic_back));
@@ -67,6 +89,7 @@ public class SearchActivity extends AppCompatActivity {    private RecyclerView 
                         filteredList.add(myDataset.get(i));
                     }
                 }
+                searchresults.setText("검색결과" + " ( " + filteredList.size() + " )");
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
                 mAdapter = new SearchAdapter(filteredList);
                 mRecyclerView.setAdapter(mAdapter);
