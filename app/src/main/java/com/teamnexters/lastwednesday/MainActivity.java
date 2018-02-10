@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.teamnexters.lastwednesday.adapter.MainViewPagerAdapter;
@@ -33,20 +34,21 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setCurrentItem(1);
         mViewPager.setPageTransformer(true, new RevolvingPageTransformer());
     }
+
     @Override
-    public void onBackPressed(){
-        if(doubleBackToExitPressedOnce){
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
             super.onBackPressed();
             return;
         }
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "뒤로 버튼을 한번 더 누르시면 종료됩니다",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "뒤로 버튼을 한번 더 누르시면 종료됩니다", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 doubleBackToExitPressedOnce = false;
             }
-        },2000);
+        }, 2000);
     }
 
 

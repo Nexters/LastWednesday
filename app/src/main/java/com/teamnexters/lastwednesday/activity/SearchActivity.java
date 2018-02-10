@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.teamnexters.lastwednesday.R;
 
 import java.lang.reflect.Array;
@@ -24,9 +25,7 @@ import java.util.List;
  * Created by user on 2018-01-21.
  */
 
-public class SearchActivity extends AppCompatActivity{
-
-    private RecyclerView mRecyclerView;
+public class SearchActivity extends AppCompatActivity {    private RecyclerView mRecyclerView;
     public EditText search;
     public SearchAdapter mAdapter;
     private List<MyData> myDataset;
@@ -36,7 +35,7 @@ public class SearchActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        search = (EditText) findViewById( R.id.search);
+        search = (EditText) findViewById(R.id.search);
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerViewPlays);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManger = new LinearLayoutManager(this);
@@ -52,14 +51,17 @@ public class SearchActivity extends AppCompatActivity{
         myDataset.add(new MyData("Apple", "2018.00.00~2018.00.00", "opened!", R.drawable.ic_back));
         myDataset.add(new MyData("Cats", "2018.00.00~2018.00.00", "So adorable", R.drawable.ic_back));
         myDataset.add(new MyData("Caffeine", "2018.00.00~2018.00.00", "i shake", R.drawable.ic_back));
-
         addTextListener();
     }
-    
-    public void addTextListener(){
+
+    public void addTextListener() {
         search.addTextChangedListener(new TextWatcher() {
-            public void afterTextChanged(Editable s) {}
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void afterTextChanged(Editable s) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             public void onTextChanged(CharSequence query, int start, int before, int count) {
                 query = query.toString().toLowerCase();
                 final List<MyData> filteredList = new ArrayList<>();

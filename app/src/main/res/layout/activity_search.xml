@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
 
 
     <EditText
@@ -46,6 +45,7 @@
         android:layout_marginTop="11dp"
         android:textSize="10sp"
         android:text="최근 검색한 작품" />
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerViewPlays"

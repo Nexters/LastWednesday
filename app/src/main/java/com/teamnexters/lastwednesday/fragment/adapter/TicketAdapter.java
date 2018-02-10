@@ -16,17 +16,17 @@ import java.util.List;
  * Created by JY on 2018-01-12.
  */
 
-public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketViewHolder>{
+public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketViewHolder> {
 
     private List<Ticket> dataSet;
 
-    public TicketAdapter (List<Ticket> dataSet) {
+    public TicketAdapter(List<Ticket> dataSet) {
         this.dataSet = dataSet;
     }
 
     @Override
     public TicketViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket , parent, false );
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket, parent, false);
 
         return new TicketViewHolder(view);
     }
@@ -40,7 +40,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
 
     @Override
     public int getItemCount() {
-        return (dataSet != null ?  dataSet.size() : 0);
+        return (dataSet != null ? dataSet.size() : 0);
     }
 
     static class TicketViewHolder extends RecyclerView.ViewHolder {

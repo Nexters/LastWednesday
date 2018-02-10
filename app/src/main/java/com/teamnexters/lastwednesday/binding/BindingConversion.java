@@ -17,6 +17,6 @@ public class BindingConversion {
 
     @android.databinding.BindingConversion
     public static String convertDoubletoPrice(double d) { //금액타입
-        return new DecimalFormat("#,###").format(d)+"원";
+        return new DecimalFormat("#,###").format(d) + "원";
     }
 }
