@@ -7,10 +7,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
-import com.teamnexters.lastwednesday.R;
-import com.teamnexters.lastwednesday.adapter.SearchAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.teamnexters.lastwednesday.R;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +25,12 @@ import java.util.List;
  */
 
 public class SearchActivity extends AppCompatActivity{
+
     private RecyclerView mRecyclerView;
     public EditText search;
-    private List<String> list = new ArrayList<String>();
     public SearchAdapter mAdapter;
+    private List<MyData> myDataset;
+    private RecyclerView.LayoutManager mLayoutManger;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,48 +39,102 @@ public class SearchActivity extends AppCompatActivity{
         search = (EditText) findViewById( R.id.search);
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerViewPlays);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        playList();
-        mAdapter = new SearchAdapter(list,this);
+        mLayoutManger = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManger);
+        myDataset = new ArrayList<>();
+        mAdapter = new SearchAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+
+        myDataset.add(new MyData("Wicked", "2018.00.00~2018.00.00", "Seoul", R.drawable.ic_back));
+        myDataset.add(new MyData("Starbucks", "2018.00.00~2018.00.00", "no outlets", R.drawable.ic_back));
+        myDataset.add(new MyData("Ediya", "2018.00.00~2018.00.00", "almost everywhere", R.drawable.ic_back));
+        myDataset.add(new MyData("i don't know", "2018.00.00~2018.00.00", "i drank", R.drawable.ic_back));
+        myDataset.add(new MyData("Apple", "2018.00.00~2018.00.00", "opened!", R.drawable.ic_back));
+        myDataset.add(new MyData("Cats", "2018.00.00~2018.00.00", "So adorable", R.drawable.ic_back));
+        myDataset.add(new MyData("Caffeine", "2018.00.00~2018.00.00", "i shake", R.drawable.ic_back));
 
         addTextListener();
     }
-    public void playList(){
-        list.add("광화문 연가");
-        list.add("금발이 너무해");
-        list.add("누가 내머리에 똥쌌어?");
-        list.add("우리 아이가 달라졌어요");
-        list.add("옥탑방 고양이");
-        list.add("캣츠 : 내한공연");
-        list.add("빌리 엘리엇");
-        list.add("김종욱 찾기");
-        list.add("공룡이 살아있다");
-        list.add("라나 델 레이 : LA TO The MOON");
-        list.add("복순이할배");
-        list.add("춤추는 꼬마공주 소피아");
-        list.add("김광석뮤지컬 : 마흔즈음에");
-        list.add("오즈의 마법사");
-
-    }
+    
     public void addTextListener(){
         search.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             public void onTextChanged(CharSequence query, int start, int before, int count) {
                 query = query.toString().toLowerCase();
-                final List<String> filteredList = new ArrayList<>();
-                for (int i = 0; i < list.size(); i++) {
-                    final String text = list.get(i).toLowerCase();
+                final List<MyData> filteredList = new ArrayList<>();
+                for (int i = 0; i < myDataset.size(); i++) {
+                    final String text = myDataset.get(i).text.toLowerCase();
                     if (text.contains(query)) {
-                        filteredList.add(list.get(i));
+                        filteredList.add(myDataset.get(i));
                     }
                 }
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
-                mAdapter = new SearchAdapter(filteredList, SearchActivity.this);
+                mAdapter = new SearchAdapter(filteredList);
                 mRecyclerView.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();  // data set changed
             }
         });
     }
 }
+
+class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHolder> {
+    private List<MyData> mDataset;
+
+    public SearchAdapter(List<MyData> myDataset) {
+        mDataset = myDataset;
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        public ImageView mImageView;
+        public TextView mplaytitle;
+        public TextView mplaydate;
+        public TextView mplayplace;
+
+        public MyViewHolder(View itemLayoutView) {
+            super(itemLayoutView);
+            mImageView = (ImageView) itemLayoutView.findViewById(R.id.poster);
+            mplaytitle = (TextView) itemLayoutView.findViewById(R.id.play_title);
+            mplaydate = (TextView)itemLayoutView.findViewById(R.id.play_date);
+            mplayplace = (TextView)itemLayoutView.findViewById(R.id.play_place);
+
+        }
+    }
+
+
+    @Override
+    public SearchAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.plays_cardview, null);
+        MyViewHolder myViewHolder = new MyViewHolder(view);
+        return myViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(final SearchAdapter.MyViewHolder viewHolder, final int position) {
+        viewHolder.mplaytitle.setText(mDataset.get(position).text);
+        viewHolder.mplaydate.setText(mDataset.get(position).text2);
+        viewHolder.mplayplace.setText(mDataset.get(position).text3);
+        viewHolder.mImageView.setImageResource(mDataset.get(position).img);
+    }
+
+
+
+    @Override
+    public int getItemCount() {
+        return mDataset.size();
+    }
+}
+
+
+class MyData{
+    public String text, text2, text3;
+    public int img;
+    public MyData(String text, String text2, String text3, int img){
+        this.text = text;
+        this.text2 = text2;
+        this.text3 = text3;
+        this.img=img;
+    }
+}
+
