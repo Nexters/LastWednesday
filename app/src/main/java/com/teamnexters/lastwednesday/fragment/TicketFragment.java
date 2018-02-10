@@ -35,6 +35,7 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
     private TicketAdapter adapter;
     private List<Ticket> dataSet;
     private Button SearchPlays;
+
     public static TicketFragment newInstance() {
         TicketFragment fragment = new TicketFragment();
         Bundle bundle = new Bundle();
@@ -60,13 +61,14 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
         dataSet = new ArrayList<>();
         dataSet.add(Ticket.of("옥탑방고양이", 19000, new Date())); //임시데이터
         dataSet.add(Ticket.of("넌센스2", 38000, new Date()));
-        dataSet.add(Ticket.of("랄랄랄라 룰룰루",47000, new Date()));
+        dataSet.add(Ticket.of("랄랄랄라 룰룰루", 47000, new Date()));
 
         SearchPlays = (Button) view.findViewById(R.id.search_plays);
         SearchPlays.setOnClickListener(this);
 
         return view;
     }
+
     private void initRecyclerview() {
         layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

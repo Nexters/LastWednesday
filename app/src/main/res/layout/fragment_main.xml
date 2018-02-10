@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="main"
-            type="com.teamnexters.lastwednesday.fragment.MainFragment"/>
+            type="com.teamnexters.lastwednesday.fragment.MainFragment" />
     </data>
 
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000"
-    >
-
-    <include
-        android:id="@+id/toolbar_search"
-        layout="@layout/toolbar_search"
-        style="@style/ConstraintTop"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:background="@color/cWhite">
 
+        <include
+            android:id="@+id/toolbar_search"
+            style="@style/ConstraintTop"
+            layout="@layout/toolbar_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="102dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="14dp"
-        android:text="Logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints" />
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="14dp"
+            android:text="Logout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+    </android.support.constraint.ConstraintLayout>
 </layout>

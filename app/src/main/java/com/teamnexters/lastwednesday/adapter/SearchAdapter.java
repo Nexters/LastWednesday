@@ -40,6 +40,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView play_name;
+
         public MyViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             play_name = (TextView) itemLayoutView.findViewById(R.id.play_name);

@@ -13,7 +13,7 @@ import lombok.Data;
  * 리뷰 담을 클래스
  */
 @Data
-@AllArgsConstructor (staticName = "of")
+@AllArgsConstructor(staticName = "of")
 public class Review {
 
     private String title;
