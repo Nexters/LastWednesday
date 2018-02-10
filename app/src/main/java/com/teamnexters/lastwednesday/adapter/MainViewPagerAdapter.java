@@ -10,7 +10,7 @@ import com.teamnexters.lastwednesday.fragment.TicketFragment;
 
 /**
  * Created by JY on 2018-01-10.
- *
+ * <p>
  * Edited by Hyunsik on 2018-01-11.
  */
 

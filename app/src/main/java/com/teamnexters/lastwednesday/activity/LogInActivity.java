@@ -66,7 +66,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
-                Log.e("@@@@@","1111111");
+                Log.e("@@@@@", "1111111");
                 finish();
                 startActivity(new Intent(mContext, MainActivity.class));
             }
@@ -74,13 +74,13 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onCancel() {
                 // App code
-                Log.e("@@@@@","22222222");
+                Log.e("@@@@@", "22222222");
             }
 
             @Override
             public void onError(FacebookException exception) {
                 // App code
-                Log.e("@@@@@","33333333");
+                Log.e("@@@@@", "33333333");
             }
         });
     }
@@ -92,7 +92,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                 signIn();
                 break;
             case R.id.btn_facebook:
-                Log.e("@@@@@","444444444");
+                Log.e("@@@@@", "444444444");
                 //딱히 정의할 필요 없는 부분
                 break;
         }

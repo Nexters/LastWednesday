@@ -24,7 +24,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
     private List<Ticket> dataSet;
     private PublishSubject<Ticket> publishSubject;
 
-    public TicketAdapter (List<Ticket> dataSet) {
+    public TicketAdapter(List<Ticket> dataSet) {
         this.dataSet = dataSet;
     }
 
@@ -43,7 +43,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
 
     @Override
     public int getItemCount() {
-        return (dataSet != null ?  dataSet.size() : 0);
+        return (dataSet != null ? dataSet.size() : 0);
     }
 
     public PublishSubject<Ticket> getPublishSubject () {

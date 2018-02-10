@@ -3,9 +3,7 @@
     xmlns:android = "http://schemas.android.com/apk/res/android"
     xmlns:app = "http://schemas.android.com/apk/res-auto"
     >
-
     <data>
-
         <variable
             name = "ticket"
             type = "com.teamnexters.lastwednesday.fragment.TicketFragment"
@@ -16,8 +14,9 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
-        android:background="@color/cWhite"
+        android:background = "@color/cWhite"
         >
+
         <include
             android:id = "@+id/toolbar_search"
             style = "@style/ConstraintTop"
@@ -25,38 +24,37 @@
             android:layout_width = "match_parent"
             android:layout_height = "wrap_content"
             />
+
         <android.support.constraint.ConstraintLayout
             android:layout_width = "0dp"
             android:layout_height = "wrap_content"
-            android:padding="13dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_search"
+            android:padding = "13dp"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/toolbar_search"
             >
 
             <TextView
-                android:id="@+id/text_wish"
+                android:id = "@+id/text_wish"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
-                android:text="@{@string/wishlist + `(35)`}"
-                android:textSize="12sp"
+                android:text = "@{@string/wishlist + `(35)`}"
+                android:textSize = "12sp"
                 />
+
             <android.support.v7.widget.RecyclerView
                 android:id = "@+id/recycler_ticket"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
+                android:layout_marginTop = "10dp"
                 android:clipChildren = "false"
-                android:dividerHeight="10dp"
                 android:clipToPadding = "false"
-                android:scrollbars="none"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/text_wish"
+                android:dividerHeight = "10dp"
+                android:scrollbars = "none"
+                app:layout_constraintTop_toBottomOf = "@+id/text_wish"
                 />
 
         </android.support.constraint.ConstraintLayout>
-
-
-
 
     </android.support.constraint.ConstraintLayout>
 </layout>

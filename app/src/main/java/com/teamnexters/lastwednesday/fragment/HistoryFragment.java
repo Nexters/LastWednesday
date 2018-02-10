@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * Created by JY on 2018-01-10.
- *
+ * <p>
  * Edited by Hyunsik on 2018-01-11.
  */
 
@@ -49,11 +49,11 @@ public class HistoryFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,  R.layout.fragment_history, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_history, container, false);
         View rootView = binding.getRoot();
         binding.setHistory(this);
 
-        dataSet  = new ArrayList<>();
+        dataSet = new ArrayList<>();
         dataSet.add(Review.of("옥탑방고양이", "정말정말재밌어요", 4.5, new Date())); //임시데이터
         dataSet.add(Review.of("넌센스2", "정말정말재밌어요", 5, new Date()));
         dataSet.add(Review.of("랄랄랄라 룰룰루", "정말정말재밌어요", 3.5, new Date()));
@@ -72,7 +72,7 @@ public class HistoryFragment extends Fragment {
     }
 
     private void initRecyclerview() {
-        adapter = new ReviewAdapter(dataSet.subList(0,3));
+        adapter = new ReviewAdapter(dataSet.subList(0, 3));
         layoutManager = new LinearLayoutManager(getActivity());
 
         binding.recyclerReview.setAdapter(adapter);
@@ -81,7 +81,7 @@ public class HistoryFragment extends Fragment {
     }
 
     public void onSeeMoreClick(View view) { //테스트
-        if(adapter.getItemCount() == 3) {
+        if (adapter.getItemCount() == 3) {
             adapter.setDataSet(dataSet);
             adapter.notifyDataSetChanged();
         }

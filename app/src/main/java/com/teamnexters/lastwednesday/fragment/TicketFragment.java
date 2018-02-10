@@ -34,6 +34,7 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
     private TicketAdapter adapter;
     private List<Ticket> dataSet;
     private Button SearchPlays;
+
     public static TicketFragment newInstance() {
         TicketFragment fragment = new TicketFragment();
         Bundle bundle = new Bundle();
@@ -57,6 +58,7 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
         initRecyclerview();
 
         dataSet = new ArrayList<>();
+
         dataSet.add(Ticket.of("옥탑방고양이", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
                 "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리")); //임시데이터
         dataSet.add(Ticket.of("팬레터", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
@@ -69,6 +71,7 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
 
         return view;
     }
+
     private void initRecyclerview() {
         layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
