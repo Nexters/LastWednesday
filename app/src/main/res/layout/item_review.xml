@@ -11,9 +11,9 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/cWhite"
         android:padding="8dp">
+
 
         <TextView
             android:id="@+id/textview_title"

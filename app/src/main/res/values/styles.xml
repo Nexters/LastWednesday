@@ -21,6 +21,20 @@
         <item name="layout_constraintStart_toStartOf">parent</item>
     </style>
 
+
+    <style name = "TicketSpecificTitle">
+        <item name = "android:textSize">10sp</item>
+        <item name = "android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name = "android:layout_height">wrap_content</item>
+    </style>
+    <style name = "TicketSpecificContent">
+        <item name = "android:layout_marginLeft">17dp</item>
+        <item name = "android:textSize">10sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name = "android:layout_height">wrap_content</item>
+    </style>
+
     <style name="custom_dialog" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsTranslucent">true</item>
@@ -34,4 +48,5 @@
         <item name="colorControlNormal">@color/cOrange</item>
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
+
 </resources>

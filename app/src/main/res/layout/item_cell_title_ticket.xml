@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="title" type="String"/>
+        <variable
+            name="date" type="String"/>
+        <variable
+            name="concertHall" type="String"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:layout_marginBottom="9dp"
+        >
+    <android.support.constraint.ConstraintLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:background = "@drawable/background_ticket"
+        >
+
+        <ImageView
+            android:id = "@+id/image_title_ticket"
+            android:layout_width = "80dp"
+            android:layout_height = "123dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src = "#999999"
+            />
+
+        <TextView
+            android:id = "@+id/text_title_title"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginStart = "10dp"
+            android:layout_marginTop="13dp"
+            android:text = "@{title}"
+            android:textSize = "14sp"
+            android:textStyle = "bold"
+            app:layout_constraintStart_toEndOf = "@+id/image_title_ticket"
+            app:layout_constraintTop_toTopOf = "@+id/image_title_ticket"
+            />
+
+        <TextView
+            android:id = "@+id/text_title_date"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@{date}"
+            android:textSize = "12sp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_title_title"
+            app:layout_constraintStart_toStartOf="@+id/text_title_title"
+            />
+
+        <TextView
+            android:id = "@+id/text_title_hall"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@{concertHall}"
+            android:textSize = "12sp"
+            app:layout_constraintStart_toStartOf = "@+id/text_title_title"
+            app:layout_constraintTop_toBottomOf = "@+id/text_title_date"
+            />
+
+        <!--line-->
+        <View
+            android:id="@+id/line_title"
+            android:layout_width = "0dp"
+            android:layout_height = "0.3dp"
+            android:background="#e5e5e5"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toEndOf="@+id/image_title_ticket"
+            app:layout_constraintTop_toBottomOf="@+id/text_title_hall"
+          />
+
+        <TextView
+            android:id="@+id/text_title_star"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:drawableStart="@drawable/ic_star_g"
+            app:layout_constraintStart_toStartOf="@+id/text_title_title"
+            app:layout_constraintTop_toBottomOf="@+id/line_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/star"
+            android:textSize="10sp"
+            />
+
+        <TextView
+            android:id="@+id/text_title_comment"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:drawableStart="@drawable/ic_write"
+            app:layout_constraintStart_toEndOf="@+id/text_title_star"
+            app:layout_constraintTop_toTopOf="@+id/text_title_star"
+            app:layout_constraintBottom_toBottomOf="@+id/text_title_star"
+            android:text="@string/comment"
+            android:layout_marginStart="10dp"
+            android:textSize="10sp"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</layout>

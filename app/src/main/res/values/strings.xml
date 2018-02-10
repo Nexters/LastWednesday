@@ -4,10 +4,19 @@
     <string name="fb_login_protocol_scheme">fb212782095949337</string>
     <string name="server_client_id">964138090496-ueb0pmmhkmg7q6c54vr5gi6u96dj26l9.apps.googleusercontent.com</string>
 
+   <string name = "star">별점매기기</string>
+    <string name = "comment">코멘트쓰기</string>
+    <string name = "running">러닝타임</string>
+    <string name = "view_age">관람연령</string>
+    <string name = "cast">출연진</string>
+    <string name = "crew">제작진</string>
+    <string name = "wishlist">위시리스트</string>
+
     <string name="comment_title">코멘트를 달아주세요!</string>
     <string name="stared_title">별점을 매겨주세요!</string>
     <string name="btn_cancle">취소</string>
     <string name="btn_check">확인</string>
 
     <string name="comment_placeholder">코멘트를 입력해주세요.</string>
+
 </resources>

@@ -18,7 +18,6 @@ import com.teamnexters.lastwednesday.fragment.adapter.TicketAdapter;
 import com.teamnexters.lastwednesday.model.Ticket;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,9 +58,13 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
         initRecyclerview();
 
         dataSet = new ArrayList<>();
-        dataSet.add(Ticket.of("옥탑방고양이", 19000, new Date())); //임시데이터
-        dataSet.add(Ticket.of("넌센스2", 38000, new Date()));
-        dataSet.add(Ticket.of("랄랄랄라 룰룰루", 47000, new Date()));
+
+        dataSet.add(Ticket.of("옥탑방고양이", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리")); //임시데이터
+        dataSet.add(Ticket.of("팬레터", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리")); //임시데이터
+        dataSet.add(Ticket.of("누가 버지니아 울프를 두려워하나?", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리")); //임시데이터
 
         SearchPlays = (Button) view.findViewById(R.id.search_plays);
         SearchPlays.setOnClickListener(this);
@@ -74,7 +77,6 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         adapter = new TicketAdapter(dataSet);
-
         binding.recyclerTicket.setLayoutManager(layoutManager);
         binding.recyclerTicket.setHasFixedSize(true);
         binding.recyclerTicket.setAdapter(adapter);

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name = "title"
+            type = "String"
+            />
+
+        <variable
+            name = "date"
+            type = "String"
+            />
+
+        <variable
+            name = "concertHall"
+            type = "String"
+            />
+
+        <variable
+            name = "running"
+            type = "String"
+            />
+
+        <variable
+            name = "genre"
+            type = "String"
+            />
+
+        <variable
+            name = "age"
+            type = "String"
+            />
+
+        <variable
+            name = "casts"
+            type = "String"
+            />
+
+        <variable
+            name = "crews"
+            type = "String"
+            />
+    </data>
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:layout_marginBottom="9dp"
+        android:visibility="gone"
+        >
+    <android.support.constraint.ConstraintLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:background = "@drawable/background_ticket"
+        >
+
+        <TextView
+            android:id = "@+id/text_content_title"
+            style = "@style/ConstraintTop"
+            android:layout_width = "0dp"
+            android:layout_height = "wrap_content"
+            android:background = "@color/colorAccent"
+            android:gravity = "center"
+            android:padding = "4dp"
+            android:text = "@{title}"
+            android:textColor = "@color/cWhite"
+            android:textSize = "12sp"
+            />
+
+        <ImageView
+            android:id = "@+id/image_content_ticket"
+            android:layout_width = "0dp"
+            android:layout_height = "100dp"
+            android:alpha = "0.6"
+            android:background = "#999999"
+            android:src = "@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_content_title"
+            />
+
+        <TextView
+            android:id = "@+id/text_content_genre"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginStart = "10dp"
+            android:layout_marginTop = "10dp"
+            android:background = "@drawable/border_white"
+            android:padding = "4dp"
+            android:text = "@{genre}"
+            android:textColor = "@color/cWhite"
+            android:textSize = "10sp"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/text_content_title"
+            />
+
+        <TextView
+            android:id = "@+id/text_content_date"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@{date}"
+            android:textSize = "10sp"
+            app:layout_constraintTop_toBottomOf="@+id/text_content_genre"
+            app:layout_constraintBottom_toBottomOf="@+id/image_content_ticket"
+            app:layout_constraintStart_toStartOf = "@+id/text_content_genre"
+            />
+
+        <TextView
+            android:id = "@+id/text_content_hall"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginBottom = "12dp"
+            android:text = "@{concertHall}"
+            android:textSize = "10sp"
+            app:layout_constraintTop_toBottomOf="@+id/text_content_date"
+            app:layout_constraintBottom_toBottomOf = "@+id/image_content_ticket"
+            app:layout_constraintStart_toStartOf = "@+id/text_content_genre"
+            />
+
+        <GridLayout
+            android:id = "@+id/grid_content_ticket"
+            android:layout_width = "0dp"
+            android:layout_height = "wrap_content"
+            android:columnCount = "2"
+            android:padding = "13dp"
+            android:useDefaultMargins = "true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf = "@+id/image_content_ticket"
+            >
+
+            <TextView
+                style = "@style/TicketSpecificTitle"
+                android:text = "@string/running"
+                />
+
+            <TextView
+                style = "@style/TicketSpecificContent"
+                android:text = "@{running}"
+                />
+
+            <TextView
+                style = "@style/TicketSpecificTitle"
+                android:text = "@string/view_age"
+                />
+
+            <TextView
+                style = "@style/TicketSpecificContent"
+                android:text = "@{age}"
+                />
+
+            <TextView
+                style = "@style/TicketSpecificTitle"
+                android:text = "@string/cast"
+                />
+
+            <TextView
+                style = "@style/TicketSpecificContent"
+                android:text = "@{casts}"
+                />
+
+            <TextView
+                style = "@style/TicketSpecificTitle"
+                android:text = "@string/crew"
+                />
+
+            <TextView
+                style = "@style/TicketSpecificContent"
+                android:text = "@{crews}"
+                />
+        </GridLayout>
+
+        <!--line-->
+        <View
+            android:id = "@+id/line_content"
+            android:layout_width = "0dp"
+            android:layout_height = "1dp"
+            android:background = "#e5e5e5"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintBottom_toTopOf="@+id/text_content_star"
+            app:layout_constraintTop_toBottomOf = "@+id/grid_content_ticket"
+            />
+
+        <TextView
+            android:id = "@+id/text_content_star"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:drawableStart = "@drawable/ic_star_g"
+            android:text = "@string/star"
+            android:textSize = "10sp"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf = "parent"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintHorizontal_bias = "0.4"
+            app:layout_constraintStart_toStartOf = "parent"
+            app:layout_constraintTop_toBottomOf = "@+id/line_content"
+            />
+
+        <TextView
+            android:id = "@+id/text_content_comment"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:drawableStart = "@drawable/ic_write"
+            android:text = "@string/comment"
+            android:textSize = "10sp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_content_star"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintTop_toTopOf="@+id/text_content_star"
+            app:layout_constraintHorizontal_bias = "0"
+            app:layout_constraintStart_toEndOf = "@+id/text_content_star"
+            />
+    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</layout>
