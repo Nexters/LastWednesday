@@ -34,7 +34,6 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
 
     private GoogleApiClient googleApiClient;
     private Button SignOut;
-    private Button SearchPlays;
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
@@ -57,8 +56,6 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
         View rootView = binding.getRoot();
         binding.setMain(this);
 
-        SearchPlays = rootView.findViewById(R.id.search_plays);
-        SearchPlays.setOnClickListener(this);
 
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleApiClient = new GoogleApiClient.Builder(getActivity()).addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();

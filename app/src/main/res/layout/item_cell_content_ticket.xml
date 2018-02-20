@@ -5,7 +5,6 @@
     >
 
     <data>
-
         <variable
             name = "title"
             type = "String"
@@ -50,12 +49,13 @@
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
         android:layout_marginBottom="9dp"
+        android:paddingBottom="8dp"
         android:visibility="gone"
+        android:background = "@drawable/background_ticket"
         >
     <android.support.constraint.ConstraintLayout
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
-        android:background = "@drawable/background_ticket"
         >
 
         <TextView
@@ -194,7 +194,6 @@
             android:text = "@string/star"
             android:textSize = "10sp"
             android:padding="8dp"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf = "parent"
             app:layout_constraintEnd_toEndOf = "parent"
             app:layout_constraintHorizontal_bias = "0.4"
@@ -209,6 +208,7 @@
             android:drawableStart = "@drawable/ic_write"
             android:text = "@string/comment"
             android:textSize = "10sp"
+            android:padding="8dp"
             android:layout_marginStart="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/text_content_star"
             app:layout_constraintEnd_toEndOf = "parent"

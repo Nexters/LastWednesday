@@ -11,11 +11,13 @@
     <string name = "cast">출연진</string>
     <string name = "crew">제작진</string>
     <string name = "wishlist">위시리스트</string>
+    <string name = "my_shown_play">내가 본 공연</string>
 
     <string name="comment_title">코멘트를 달아주세요!</string>
     <string name="stared_title">별점을 매겨주세요!</string>
     <string name="btn_cancle">취소</string>
     <string name="btn_check">확인</string>
+    <string name = "hint_search">검색어를 입력해주세요</string>
 
     <string name="comment_placeholder">코멘트를 입력해주세요.</string>
 
