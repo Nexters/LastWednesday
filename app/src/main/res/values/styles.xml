@@ -5,21 +5,21 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name = "windowActionModeOverlay">true</item>
+        <item name="windowActionModeOverlay">true</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
-        <item name = "android:windowActionModeOverlay">true</item>
-        <item name = "android:actionModeCloseDrawable">@drawable/ic_close_o</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:actionModeCloseDrawable">@drawable/ic_close_o</item>
     </style>
-    
+
     <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
         <item name="titleTextStyle">@style/TitleText</item>
-        <item name = "background">@color/cSkyblue</item>
+        <item name="background">@color/cSkyblue</item>
     </style>
-    
+
     <style name="TitleText">
-        <item name = "android:textSize">16sp</item>
-        <item name = "android:textColor">@color/cWhite2</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/cWhite2</item>
     </style>
 
     <style name="ConstraintCenter">
@@ -36,17 +36,20 @@
     </style>
 
 
-    <style name = "TicketSpecificTitle">
-        <item name = "android:textSize">10sp</item>
-        <item name = "android:textStyle">bold</item>
+    <style name="TicketSpecificTitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/cSkyblue</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name = "android:layout_height">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
-    <style name = "TicketSpecificContent">
-        <item name = "android:layout_marginLeft">17dp</item>
-        <item name = "android:textSize">10sp</item>
+
+    <style name="TicketSpecificContent">
+        <item name="android:layout_marginLeft">17dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/cBlack</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name = "android:layout_height">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="custom_dialog" parent="Theme.AppCompat.NoActionBar">
@@ -63,14 +66,14 @@
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
-    
-    <style name = "TicketBtn">
-        <item name = "android:gravity">center</item>
-        <item name = "android:layout_gravity">center</item>
-        <item name = "android:textColor">@color/cBlack</item>
-        <item name = "android:textSize">10sp</item>
-        <item name = "android:layout_width">wrap_content</item>
-        <item name = "android:layout_height">wrap_content</item>
+
+    <style name="TicketBtn">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/cBlack</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>
