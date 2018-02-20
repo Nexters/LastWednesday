@@ -8,53 +8,84 @@
             name = "ticket"
             type = "com.teamnexters.lastwednesday.fragment.TicketFragment"
             />
+    
     </data>
-
-
     <android.support.constraint.ConstraintLayout
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
         android:background = "@color/cWhite"
         >
-
+        
         <include
-            android:id = "@+id/toolbar_search"
+            android:id = "@+id/toolbar"
             style = "@style/ConstraintTop"
             layout = "@layout/toolbar_search"
-            android:layout_width = "match_parent"
-            android:layout_height = "wrap_content"
-            />
-
-        <android.support.constraint.ConstraintLayout
             android:layout_width = "0dp"
             android:layout_height = "wrap_content"
+            />
+        
+        <LinearLayout
+            android:layout_width = "0dp"
+            android:layout_height = "0dp"
             android:padding = "13dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf = "parent"
             app:layout_constraintStart_toStartOf = "parent"
-            app:layout_constraintTop_toBottomOf = "@+id/toolbar_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf = "@+id/toolbar"
             >
-
+            
+            <GridLayout
+                android:id="@+id/grid_btn_ticket"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:columnCount="3"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="7dp"
+                android:paddingTop="7dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border_btn_round"
+                >
+                <TextView
+                    style="@style/TicketBtn"
+                    android:id="@+id/text_btn_wishlist"
+                    android:text="@string/wishlist"
+                    />
+                <View
+                    android:layout_width="0.7dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/cSkyblue"/>
+                <TextView
+                    style="@style/TicketBtn"
+                    android:text="@string/my_shown_play"
+                    />
+            </GridLayout>
+            
+            
             <TextView
                 android:id = "@+id/text_wish"
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
+                android:layout_marginTop="15dp"
                 android:text = "@{@string/wishlist + `(35)`}"
-                android:textSize = "12sp"
+                android:textSize = "10sp"
                 />
-
+            
             <android.support.v7.widget.RecyclerView
                 android:id = "@+id/recycler_ticket"
                 android:layout_width = "match_parent"
-                android:layout_height = "wrap_content"
+                android:layout_height = "match_parent"
                 android:layout_marginTop = "10dp"
                 android:clipChildren = "false"
                 android:clipToPadding = "false"
                 android:dividerHeight = "10dp"
                 android:scrollbars = "none"
-                app:layout_constraintTop_toBottomOf = "@+id/text_wish"
                 />
-
-        </android.support.constraint.ConstraintLayout>
-
+        </LinearLayout>
+    
     </android.support.constraint.ConstraintLayout>
 </layout>

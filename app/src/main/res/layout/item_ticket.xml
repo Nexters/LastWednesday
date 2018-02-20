@@ -5,7 +5,6 @@
     >
 
     <data>
-
         <variable
             name = "obj"
             type = "com.teamnexters.lastwednesday.model.Ticket"
@@ -21,6 +20,7 @@
         >
 
         <include
+            android:id="@+id/cell_content_ticket"
             layout = "@layout/item_cell_content_ticket"
             app:age = "@{obj.age}"
             app:casts = "@{obj.casts}"
@@ -33,10 +33,13 @@
             />
 
         <include
+            android:id="@+id/cell_title_ticket"
             layout = "@layout/item_cell_title_ticket"
             app:concertHall = "@{obj.concertHall}"
             app:date = "@{obj.date}"
             app:title = "@{obj.title}"
+            app:isSelected = "@{obj.isSelected}"
+            app:isLongClicked = "@{obj.isLongClicked}"
             />
     </com.ramotion.foldingcell.FoldingCell>
 

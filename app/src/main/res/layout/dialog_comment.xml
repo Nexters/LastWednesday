@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:padding="9dp"
                 android:text="@string/btn_check"
-                android:textColor="@color/cOrange" />
+                android:textColor="@color/cSkyblue" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

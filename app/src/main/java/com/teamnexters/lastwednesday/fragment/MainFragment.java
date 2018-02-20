@@ -20,7 +20,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.teamnexters.lastwednesday.R;
 import com.teamnexters.lastwednesday.activity.LogInActivity;
 import com.teamnexters.lastwednesday.activity.RecentSearchActivity;
-import com.teamnexters.lastwednesday.activity.SearchActivity;
 import com.teamnexters.lastwednesday.activity.TagActivity;
 import com.teamnexters.lastwednesday.databinding.FragmentMainBinding;
 
@@ -36,7 +35,6 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
 
     private GoogleApiClient googleApiClient;
     private Button SignOut;
-    private Button SearchPlays;
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
@@ -59,8 +57,6 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
         View rootView = binding.getRoot();
         binding.setMain(this);
 
-        SearchPlays = rootView.findViewById(R.id.search_plays);
-        SearchPlays.setOnClickListener(this);
 
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleApiClient = new GoogleApiClient.Builder(getActivity()).addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();

@@ -9,11 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.teamnexters.lastwednesday.R;
 import com.teamnexters.lastwednesday.activity.RecentSearchActivity;
-import com.teamnexters.lastwednesday.activity.SearchActivity;
 import com.teamnexters.lastwednesday.databinding.FragmentTicketBinding;
 import com.teamnexters.lastwednesday.fragment.adapter.TicketAdapter;
 import com.teamnexters.lastwednesday.model.Ticket;
@@ -27,16 +25,15 @@ import java.util.List;
  * Edited by Hyunsik on 2018-01-11.
  */
 
-public class TicketFragment extends Fragment implements View.OnClickListener {
+public class TicketFragment extends Fragment  {
 
     FragmentTicketBinding binding;
 
     private LinearLayoutManager layoutManager;
     private TicketAdapter adapter;
     private List<Ticket> dataSet;
-    private Button SearchPlays;
 
-    public static TicketFragment newInstance() {
+    public static TicketFragment newInstance () {
         TicketFragment fragment = new TicketFragment();
         Bundle bundle = new Bundle();
         fragment.setArguments(bundle);
@@ -45,46 +42,71 @@ public class TicketFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate ( @Nullable Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView ( LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState ) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ticket, container, false);
         binding.setTicket(this);
         View view = binding.getRoot();
 
-        initRecyclerview();
+
+        binding.toolbar.toolbarSearch.setContentInsetsAbsolute(0, 0);
+        binding.toolbar.toolbarSearch.setNavigationIcon(null);
+        binding.toolbar.setTicket(this);
 
         dataSet = new ArrayList<>();
-
-        dataSet.add(Ticket.of("옥탑방고양이", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
-                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리")); //임시데이터
-        dataSet.add(Ticket.of("팬레터", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
-                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리")); //임시데이터
-        dataSet.add(Ticket.of("누가 버지니아 울프를 두려워하나?", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
-                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리")); //임시데이터
-
-        SearchPlays = (Button) view.findViewById(R.id.search_plays);
-        SearchPlays.setOnClickListener(this);
+        dataSet.add(new Ticket("옥탑방고양이1", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이2", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이3", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이4", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이5", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외6", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이7", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이8", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이9", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이10", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이11", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이12", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이13", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
 
         return view;
     }
 
-    private void initRecyclerview() {
+    @Override
+    public void onActivityCreated ( @Nullable Bundle savedInstanceState ) {
+        super.onActivityCreated(savedInstanceState);
+        initRecyclerview();
+    }
+    private void initRecyclerview () {
         layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        adapter = new TicketAdapter(dataSet);
+        adapter = new TicketAdapter(getActivity());
+        adapter.onLongClickEventPublish();
+        adapter.onCheckedChangeEventPublish();
+        adapter.updateDataSet(dataSet);
+
         binding.recyclerTicket.setLayoutManager(layoutManager);
         binding.recyclerTicket.setHasFixedSize(true);
         binding.recyclerTicket.setAdapter(adapter);
     }
 
-    @Override
-    public void onClick(View view) {
+    public void onSearchClick ( View v ) {
         Intent intent = new Intent(getActivity(), RecentSearchActivity.class);
         startActivity(intent);
     }

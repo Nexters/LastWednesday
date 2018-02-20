@@ -123,7 +123,7 @@
         android:id="@+id/btn_tag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cOrange"
+        android:background="@color/cSkyblue"
         android:gravity="center"
         android:padding="16dp"
         android:text="@string/btn_complete"
