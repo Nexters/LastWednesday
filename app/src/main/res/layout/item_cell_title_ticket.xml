@@ -11,6 +11,9 @@
             name = "isLongClicked"
             type = "boolean"/>
         <variable
+            name = "isSelected"
+            type = "boolean"/>
+        <variable
             name = "title"
             type = "String"
             />
@@ -22,6 +25,9 @@
             name = "concertHall"
             type = "String"
             />
+        <import
+            alias="Mode"
+            type = "android.graphics.PorterDuff.Mode"/>
     </data>
     
     <LinearLayout
@@ -41,6 +47,7 @@
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
                 android:layout_marginEnd = "6dp"
+                android:checked="@{isSelected ? true : false }"
                 android:visibility="@{ isLongClicked ? View.VISIBLE : View.GONE }"
                 app:layout_constraintBottom_toBottomOf = "parent"
                 app:layout_constraintStart_toStartOf = "parent"
@@ -51,7 +58,9 @@
                 android:id = "@+id/image_title_ticket"
                 android:layout_width = "80dp"
                 android:layout_height = "123dp"
-                android:src = "#999999"
+                android:tint="@{isSelected ? @color/cSkyblue : @android:color/transparent}"
+                android:tintMode="@{ isSelected ? Mode.MULTIPLY : Mode.ADD }"
+                android:src = "@mipmap/ic_launcher"
                 app:layout_constraintBottom_toBottomOf = "parent"
                 app:layout_constraintStart_toEndOf = "@+id/check_ticket"
                 app:layout_constraintTop_toTopOf = "parent"

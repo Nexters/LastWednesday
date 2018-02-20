@@ -19,7 +19,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.teamnexters.lastwednesday.R;
 import com.teamnexters.lastwednesday.activity.LogInActivity;
-import com.teamnexters.lastwednesday.activity.SearchActivity;
+import com.teamnexters.lastwednesday.activity.RecentSearchActivity;
+import com.teamnexters.lastwednesday.activity.TagActivity;
 import com.teamnexters.lastwednesday.databinding.FragmentMainBinding;
 
 /**
@@ -64,7 +65,8 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
         SignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onLogoutPressed();
+                //onLogoutPressed();
+                startActivity(new Intent(getActivity(), TagActivity.class));
             }
         });
         return rootView;
@@ -93,7 +95,7 @@ public class MainFragment extends Fragment implements GoogleApiClient.OnConnecti
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        Intent intent = new Intent(getActivity(), RecentSearchActivity.class);
         startActivity(intent);
     }
 

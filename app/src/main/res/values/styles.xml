@@ -5,7 +5,21 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name = "windowActionModeOverlay">true</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name = "android:windowActionModeOverlay">true</item>
+        <item name = "android:actionModeCloseDrawable">@drawable/ic_close_o</item>
+    </style>
+    
+    <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="titleTextStyle">@style/TitleText</item>
+        <item name = "background">@color/cSkyblue</item>
+    </style>
+    
+    <style name="TitleText">
+        <item name = "android:textSize">16sp</item>
+        <item name = "android:textColor">@color/cWhite2</item>
     </style>
 
     <style name="ConstraintCenter">
@@ -45,9 +59,10 @@
     </style>
 
     <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">@color/cOrange</item>
+        <item name="colorControlNormal">@color/cSkyblue</item>
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
+
     
     <style name = "TicketBtn">
         <item name = "android:gravity">center</item>
@@ -57,4 +72,5 @@
         <item name = "android:layout_width">wrap_content</item>
         <item name = "android:layout_height">wrap_content</item>
     </style>
+
 </resources>

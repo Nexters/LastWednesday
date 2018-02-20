@@ -38,6 +38,7 @@
             app:concertHall = "@{obj.concertHall}"
             app:date = "@{obj.date}"
             app:title = "@{obj.title}"
+            app:isSelected = "@{obj.isSelected}"
             app:isLongClicked = "@{obj.isLongClicked}"
             />
     </com.ramotion.foldingcell.FoldingCell>

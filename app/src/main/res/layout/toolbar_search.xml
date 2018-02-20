@@ -11,17 +11,12 @@
             />
         
         <import type = "android.view.View" />
-        
-        <variable
-            name = "isDeleteToolbar"
-            type = "boolean"
-            />
     </data>
     
     <android.support.v7.widget.Toolbar
         android:id = "@+id/toolbar_search"
         android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
+        android:layout_height = "?attr/actionBarSize"
         >
         
         <android.support.v7.widget.CardView
@@ -38,6 +33,7 @@
                 android:padding = "10dp"
                 >
                 
+         
                 <TextView
                     android:id = "@+id/text_toolbar_search"
                     android:layout_width = "0dp"
@@ -50,9 +46,8 @@
                     android:onClick = "@{ (view) -> ticket.onSearchClick(view) }"
                     android:padding = "7dp"
                     android:textSize = "13sp"
-                    android:visibility = "@{ !isDeleteToolbar ? View.VISIBLE : View.GONE }"
                     />
-   
+                
                 
             </LinearLayout>
         

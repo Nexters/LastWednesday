@@ -3,19 +3,19 @@ package com.teamnexters.lastwednesday;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.teamnexters.lastwednesday.adapter.MainViewPagerAdapter;
+import com.teamnexters.lastwednesday.custom.StuckViewPager;
 import com.teamnexters.lastwednesday.fragment.anim.RevolvingPageTransformer;
 
 public class MainActivity extends AppCompatActivity {
 
     Context mContext;
-    ViewPager mViewPager;
+    StuckViewPager mViewPager;
     MainViewPagerAdapter mAdapter;
     boolean doubleBackToExitPressedOnce = false;
 
@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 doubleBackToExitPressedOnce = false;
             }
         }, 2000);
+    }
+
+    public void actionModeState( boolean state) { //액션모드가 진행중인지 검사
+        mViewPager.setPageEnabled( !state );
     }
 
 

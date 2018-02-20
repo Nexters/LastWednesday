@@ -26,6 +26,7 @@ public class Ticket extends BaseObservable {
     private String crews;
 
     private boolean isLongClicked;
+    private boolean isSelected;
 
     @Bindable
     public boolean isLongClicked () {
@@ -57,7 +58,6 @@ public class Ticket extends BaseObservable {
         return date;
     }
 
-    @Bindable
     public String getConcertHall () {
         return concertHall;
     }
@@ -83,4 +83,13 @@ public class Ticket extends BaseObservable {
     }
 
 
+    @Bindable
+    public boolean isSelected () {
+        return isSelected;
+    }
+
+    public void setSelected ( boolean selected ) {
+        isSelected = selected;
+        notifyPropertyChanged(BR.selected);
+    }
 }

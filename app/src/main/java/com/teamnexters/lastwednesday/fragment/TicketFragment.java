@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.teamnexters.lastwednesday.R;
-import com.teamnexters.lastwednesday.activity.SearchActivity;
+import com.teamnexters.lastwednesday.activity.RecentSearchActivity;
 import com.teamnexters.lastwednesday.databinding.FragmentTicketBinding;
 import com.teamnexters.lastwednesday.fragment.adapter.TicketAdapter;
 import com.teamnexters.lastwednesday.model.Ticket;
@@ -59,9 +59,29 @@ public class TicketFragment extends Fragment  {
         binding.toolbar.setTicket(this);
 
         dataSet = new ArrayList<>();
-        dataSet.add(new Ticket("옥탑방고양이", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+        dataSet.add(new Ticket("옥탑방고양이1", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
                 "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
-        dataSet.add(new Ticket("옥탑방고양이", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+        dataSet.add(new Ticket("옥탑방고양이2", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이3", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이4", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이5", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외6", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이7", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이8", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이9", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이10", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이11", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이12", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
+                "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
+        dataSet.add(new Ticket("옥탑방고양이13", "2017.11.12~2018.01.12", "동숭아트신사홀", "픽션 , 액션", "120분", "12세",
                 "홍길동, 김길동, 이길동, 박길동 외", "김둘리, 박둘리", false)); //임시데이터
 
         return view;
@@ -76,19 +96,18 @@ public class TicketFragment extends Fragment  {
         layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        adapter = new TicketAdapter();
-        adapter.updateData(dataSet);
+        adapter = new TicketAdapter(getActivity());
+        adapter.onLongClickEventPublish();
+        adapter.onCheckedChangeEventPublish();
+        adapter.updateDataSet(dataSet);
 
         binding.recyclerTicket.setLayoutManager(layoutManager);
         binding.recyclerTicket.setHasFixedSize(true);
         binding.recyclerTicket.setAdapter(adapter);
     }
 
-
-
     public void onSearchClick ( View v ) {
-        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        Intent intent = new Intent(getActivity(), RecentSearchActivity.class);
         startActivity(intent);
     }
-
 }
