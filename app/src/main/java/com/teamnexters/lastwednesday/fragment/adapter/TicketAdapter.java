@@ -1,5 +1,6 @@
 package com.teamnexters.lastwednesday.fragment.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ramotion.foldingcell.FoldingCell;
 import com.teamnexters.lastwednesday.MainActivity;
@@ -40,7 +42,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
     private ActionMode mActionMode;
     private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
         @Override
-        public boolean onCreateActionMode ( ActionMode mode, Menu menu ) {
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             ((MainActivity) context).actionModeState(true);
 
             MenuInflater inflater = mode.getMenuInflater();
@@ -49,13 +51,13 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         }
 
         @Override
-        public boolean onPrepareActionMode ( ActionMode mode, Menu menu ) {
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
             return false;
         }
 
         @Override
-        public boolean onActionItemClicked ( ActionMode mode, MenuItem item ) {
-            if ( item.getItemId() == R.id.menu_delete ) { //삭제메뉴(휴지통)클릭하면 선택된 항목 삭제.
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            if (item.getItemId() == R.id.menu_delete) { //삭제메뉴(휴지통)클릭하면 선택된 항목 삭제.
                 deleteDataSet();
                 mode.finish();
                 return true;
@@ -64,7 +66,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         }
 
         @Override
-        public void onDestroyActionMode ( ActionMode mode ) {
+        public void onDestroyActionMode(ActionMode mode) {
             selectedList.clear();
             ((MainActivity) context).actionModeState(false);
             mActionMode = null;
@@ -73,7 +75,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         }
     };
 
-    public TicketAdapter ( Context context ) {
+    public TicketAdapter(Context context) {
         this.context = context;
         this.dataSet = new ArrayList<>();
         this.selectedList = new ArrayList<>();
@@ -82,37 +84,37 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
     }
 
     @Override
-    public TicketViewHolder onCreateViewHolder ( ViewGroup parent, int viewType ) {
+    public TicketViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ticket, parent, false);
         itemView.setOnClickListener(this);
+
         return new TicketViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder ( TicketViewHolder holder, int position ) {
+    public void onBindViewHolder(TicketViewHolder holder, int position) {
         Ticket ticket = dataSet.get(position);
         holder.binding.setObj(ticket);
 
         holder.getLongClickObservable().subscribe(longClickSubject);
         holder.getCheckedObservable(ticket).subscribe(checkedSubject);
-
     }
 
     @Override
-    public int getItemCount () {
+    public int getItemCount() {
         return (dataSet != null ? dataSet.size() : 0);
     }
 
-    public void onCheckedChangeEventPublish () { //체크박스의 체크상태가 변할때 실행
+    public void onCheckedChangeEventPublish() { //체크박스의 체크상태가 변할때 실행
         checkedSubject
                 .subscribe(data -> {
                     addSelectedItem(data);
-                    if ( mActionMode != null )
+                    if (mActionMode != null)
                         mActionMode.setTitle(selectedList.size() + context.getString(R.string.select)); //선택된 항목의 개수를 액션바에 보여줌
                 });
     }
 
-    private void changeSelectState ( boolean state ) { //체크박스 선택상태 변경.
+    private void changeSelectState(boolean state) { //체크박스 선택상태 변경.
         Observable.fromIterable(dataSet)
                 .filter(val -> val.isSelected() != state)
                 .subscribe(data -> {
@@ -121,75 +123,99 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
                 });
     }
 
-    private void addSelectedItem ( Ticket item ) {
-        if ( !selectedList.contains(item) && item.isSelected() ) {
+    private void addSelectedItem(Ticket item) {
+        if (!selectedList.contains(item) && item.isSelected()) {
             selectedList.add(item);
-        } else if ( !item.isSelected() && selectedList.contains(item) ) {
+        } else if (!item.isSelected() && selectedList.contains(item)) {
             selectedList.remove(item);
         }
     }
 
-    public void onLongClickEventPublish () {
+    public void onLongClickEventPublish() {
         longClickSubject
                 .subscribe(v -> {
-                    if ( mActionMode == null ) {
+                    if (mActionMode == null) {
                         changeCheckBoxVisibility(true);
                         mActionMode = ((MainActivity) context).startActionMode(mActionModeCallback);
                     }
                 });
     }
 
-    private void changeCheckBoxVisibility ( boolean state ) {
+    private void changeCheckBoxVisibility(boolean state) {
         Observable.fromIterable(dataSet)
-                .filter(data -> data.isLongClicked() !=state)
+                .filter(data -> data.isLongClicked() != state)
                 .subscribe(data -> {
                     data.setLongClicked(state);
                     notifyDataSetChanged();
                 });
     }
 
-    public void updateDataSet ( List<Ticket> items ) {
+    public void updateDataSet(List<Ticket> items) {
         this.dataSet.addAll(items);
         notifyDataSetChanged();
     }
 
-    private void deleteDataSet () {
+    private void deleteDataSet() {
         this.dataSet.removeAll(selectedList);
         notifyDataSetChanged();
     }
 
     @Override
-    public void onClick ( View v ) {
+    public void onClick(View v) {
         ((FoldingCell) v).toggle(false);
     }
 
 
-    static class TicketViewHolder extends RecyclerView.ViewHolder {
+    static class TicketViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ItemTicketBinding binding;
+        TextView btn_rate;
+        TextView btn_comment;
 
-        private TicketViewHolder ( View itemView ) {
+        private TicketViewHolder(View itemView) {
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
+
+            btn_rate = (TextView) itemView.findViewById(R.id.text_title_star);
+            btn_comment = (TextView) itemView.findViewById(R.id.text_title_comment);
+
+            btn_rate.setOnClickListener(this);
+            btn_comment.setOnClickListener(this);
         }
 
-        private Observable<Ticket> getCheckedObservable ( Ticket item ) { //checkbox observable
+        private Observable<Ticket> getCheckedObservable(Ticket item) { //checkbox observable
             return Observable.create(e ->
                     binding.cellTitleTicket.checkTicket.setOnCheckedChangeListener(
-                            ( compoundBtn, state ) -> {
+                            (compoundBtn, state) -> {
                                 item.setSelected(state);
                                 e.onNext(item);
                             }
                     ));
         }
 
-        private Observable<View> getLongClickObservable () {
+        private Observable<View> getLongClickObservable() {
             return Observable.create(e -> {
                 itemView.setOnLongClickListener(view -> {
                     e.onNext(itemView);
                     return true;
                 });
             });
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.text_title_star:
+                    Dialog dialog_star = new Dialog(itemView.getContext(), R.style.custom_dialog);
+                    dialog_star.setContentView(R.layout.dialog_stared);
+                    dialog_star.show();
+                    break;
+                case R.id.text_title_comment:
+                    Dialog dialog_comment = new Dialog(itemView.getContext(), R.style.custom_dialog);
+                    dialog_comment.setContentView(R.layout.dialog_comment);
+                    dialog_comment.show();
+                    break;
+            }
         }
     }
 
