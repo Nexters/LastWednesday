@@ -23,7 +23,7 @@
     <string name="select">개 선택</string>
 
     <string name="tag_title">태그 검색 설정</string>
-    <string name="tag_recommand">님의 추천태그</string>
+    <string name="tag_recommand">MY 추천태그</string>
 
     <string name="comment_placeholder">이곳을 눌러 코멘트를 작성해주세요.</string>
 
