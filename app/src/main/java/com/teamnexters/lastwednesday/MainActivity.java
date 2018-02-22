@@ -1,6 +1,7 @@
 package com.teamnexters.lastwednesday;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.teamnexters.lastwednesday.activity.SplashActivity;
 import com.teamnexters.lastwednesday.adapter.MainViewPagerAdapter;
 import com.teamnexters.lastwednesday.custom.StuckViewPager;
 import com.teamnexters.lastwednesday.fragment.anim.RevolvingPageTransformer;
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
+
+        startActivity(new Intent(mContext, SplashActivity.class));
+
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(mContext);
 
@@ -51,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    public void actionModeState( boolean state) { //액션모드가 진행중인지 검사
-        mViewPager.setPageEnabled( !state );
+    public void actionModeState(boolean state) { //액션모드가 진행중인지 검사
+        mViewPager.setPageEnabled(!state);
     }
 
 
