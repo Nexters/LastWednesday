@@ -13,7 +13,7 @@
     <string name="crew">제작진</string>
     <string name="wishlist"> 위시리스트</string>
     <string name="my_shown_play">관람한 공연들</string>
-    <string name="comment_title">코멘트를 달아주세요!</string>
+    <string name="comment_title">코멘트</string>
     <string name="stared_title">별점을 매겨주세요!</string>
     <string name="search">검색</string>
     <string name="genre">장르</string>
@@ -25,7 +25,7 @@
     <string name="tag_title">태그 검색 설정</string>
     <string name="tag_recommand">님의 추천태그</string>
 
-    <string name="comment_placeholder">코멘트를 입력해주세요.</string>
+    <string name="comment_placeholder">이곳을 눌러 코멘트를 작성해주세요.</string>
 
     <string name="btn_cancle">취소</string>
     <string name="btn_check">확인</string>
