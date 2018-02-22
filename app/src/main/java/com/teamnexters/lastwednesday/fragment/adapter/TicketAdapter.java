@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -46,7 +47,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
             ((MainActivity) context).actionModeState(true);
 
             MenuInflater inflater = mode.getMenuInflater();
-            inflater.inflate(R.menu.ticket_menu, menu);
+            inflater.inflate(R.menu.delete_menu, menu);
             return true;
         }
 
@@ -57,12 +58,14 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
 
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            if (item.getItemId() == R.id.menu_delete) { //삭제메뉴(휴지통)클릭하면 선택된 항목 삭제.
-                deleteDataSet();
-                mode.finish();
-                return true;
+            switch (item.getItemId()) {
+                case R.id.menu_delete:
+                    deleteSelectedItems();
+                    mode.finish();
+                    return true;
+                default:
+                    return false;
             }
-            return false;
         }
 
         @Override
@@ -95,7 +98,6 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
     public void onBindViewHolder(TicketViewHolder holder, int position) {
         Ticket ticket = dataSet.get(position);
         holder.binding.setObj(ticket);
-
         holder.getLongClickObservable().subscribe(longClickSubject);
         holder.getCheckedObservable(ticket).subscribe(checkedSubject);
     }
@@ -109,8 +111,10 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         checkedSubject
                 .subscribe(data -> {
                     addSelectedItem(data);
-                    if (mActionMode != null)
-                        mActionMode.setTitle(selectedList.size() + context.getString(R.string.select)); //선택된 항목의 개수를 액션바에 보여줌
+                    if (mActionMode != null) {
+                        mActionMode.setTitle(Html.fromHtml( "<font color = '#5fc8e4' >"+selectedList.size()+"</font>" +context.getString(R.string.select)));
+                         //선택된 항목의 개수를 액션바에 보여줌
+                    }
                 });
     }
 
@@ -155,18 +159,31 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         notifyDataSetChanged();
     }
 
-    private void deleteDataSet() {
+    private void deleteSelectedItems() {
         this.dataSet.removeAll(selectedList);
+        notifyDataSetChanged();
+    }
+
+    public void clearDataSet() {
+        this.dataSet.clear();
         notifyDataSetChanged();
     }
 
     @Override
     public void onClick(View v) {
-        ((FoldingCell) v).toggle(false);
+        if (mActionMode == null) {
+            ((FoldingCell) v).toggle(false);
+        }
     }
 
+    @Override
+    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+        longClickSubject.onComplete();
+        checkedSubject.onComplete();
+    }
 
-    static class TicketViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class TicketViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ItemTicketBinding binding;
         TextView btn_rate;
@@ -186,8 +203,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         private Observable<Ticket> getCheckedObservable(Ticket item) { //checkbox observable
             return Observable.create(e ->
                     binding.cellTitleTicket.checkTicket.setOnCheckedChangeListener(
-                            (compoundBtn, state) -> {
-                                item.setSelected(state);
+                            (compoundBtn, b) -> {
+                                item.setSelected(b);
                                 e.onNext(item);
                             }
                     ));

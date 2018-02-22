@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="ticket"
+            type="com.teamnexters.lastwednesday.fragment.TicketFragment"/>
+    </data>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_ticket"
+        android:layout_width="match_parent"
+        android:elevation="4dp"
+        app:title="@string/my_ticket"
+        app:titleTextAppearance="@style/TitleText"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/cSkyblue">
+
+
+
+    </android.support.v7.widget.Toolbar>
+</layout>

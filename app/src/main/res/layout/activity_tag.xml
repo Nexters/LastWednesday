@@ -31,7 +31,7 @@
             android:id="@+id/close_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_close_o" />
+            android:src="@drawable/ic_close_skyblue" />
     </LinearLayout>
 
     <View
