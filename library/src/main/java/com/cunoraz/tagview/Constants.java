@@ -20,9 +20,9 @@ public class Constants {
 	public static final float DEFAULT_TAG_TEXT_SIZE = 14f;
 	public static final float DEFAULT_TAG_DELETE_INDICATOR_SIZE = 14f;
 	public static final float DEFAULT_TAG_LAYOUT_BORDER_SIZE = 0f;
-	public static final float DEFAULT_TAG_RADIUS = 100;
-	public static final int DEFAULT_TAG_LAYOUT_COLOR = Color.parseColor("#ed6c07");
-	public static final int DEFAULT_TAG_LAYOUT_COLOR_PRESS = Color.parseColor("#88363636");
+	public static final float DEFAULT_TAG_RADIUS = 20;
+	public static final int DEFAULT_TAG_LAYOUT_COLOR = Color.parseColor("#5fc8e4");
+	public static final int DEFAULT_TAG_LAYOUT_COLOR_PRESS = Color.parseColor("#885fc8e4");
 	public static final int DEFAULT_TAG_TEXT_COLOR = Color.parseColor("#ffffff");
 	public static final int DEFAULT_TAG_DELETE_INDICATOR_COLOR = Color.parseColor("#ffffff");
 	public static final int DEFAULT_TAG_LAYOUT_BORDER_COLOR = Color.parseColor("#ffffff");

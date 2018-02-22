@@ -9,10 +9,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dp">
 
+        <ImageView
+            android:id="@+id/close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_close_skyblue" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,16 +28,6 @@
             android:textColor="@color/cBlack"
             android:textSize="14sp" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/close_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_close_skyblue" />
     </LinearLayout>
 
     <View
@@ -45,24 +41,11 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/id_string"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="asdf"
-                android:textColor="@color/cBlack" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tag_recommand"
-                android:textColor="@color/cBlack" />
-        </LinearLayout>
+            android:text="@string/tag_recommand"
+            android:textColor="@color/cBlack" />
 
         <com.cunoraz.tagview.TagView xmlns:tagview="http://schemas.android.com/apk/res-auto"
             android:id="@+id/tag_recommand"
