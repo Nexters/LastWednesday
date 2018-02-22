@@ -4,10 +4,15 @@
     xmlns:android = "http://schemas.android.com/apk/res/android">
     
     <corners
-      android:radius="50dp"/>
+      android:topLeftRadius="50dp"
+        android:bottomLeftRadius="50dp"/>
     
     <stroke
         android:color="@color/cSkyblue"
         android:width="1dp"/>
+
+   <solid
+       android:color="@color/cWhite"/>
+
 
 </shape>

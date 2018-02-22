@@ -40,34 +40,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
-        android:background="@drawable/background_ticket"
-        android:paddingBottom="8dp"
-        android:visibility="gone">
+        android:visibility="gone"
+        >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="315dp"
+            android:layout_marginBottom="@dimen/ticket_cell_margin"
+            android:background="@drawable/background_ticket">
 
             <TextView
                 android:id="@+id/text_content_title"
                 style="@style/ConstraintTop"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                android:background="@drawable/background_title_ticket"
                 android:gravity="center"
-                android:padding="4dp"
+                android:padding="5dp"
                 android:text="@{title}"
                 android:textColor="@color/cWhite"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/image_content_ticket"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:alpha="0.6"
-                android:background="#999999"
-                android:src="@mipmap/ic_launcher"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:src="@color/cGray2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_content_title" />
@@ -76,13 +76,15 @@
                 android:id="@+id/text_content_genre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="9dp"
                 android:background="@drawable/border_white"
-                android:padding="4dp"
+                android:padding="5dp"
                 android:text="@{genre}"
                 android:textColor="@color/cWhite"
                 android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_content_title" />
 
@@ -91,6 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{date}"
+                android:alpha="0.7"
                 android:textColor="@color/cWhite"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/image_content_ticket"
@@ -103,7 +106,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:text="@{concertHall}"
-                android:textSize="10sp"
+                android:alpha="0.7"
+                android:textColor="@color/cWhite"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/image_content_ticket"
                 app:layout_constraintStart_toStartOf="@+id/text_content_genre"
                 app:layout_constraintTop_toBottomOf="@+id/text_content_date" />
@@ -113,10 +118,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
-                android:padding="13dp"
+                android:padding="@dimen/ticket_padding"
                 android:useDefaultMargins="true"
+                app:layout_constraintVertical_bias="0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_content_ticket">
 
                 <TextView
@@ -152,45 +159,45 @@
                     android:text="@{crews}" />
             </GridLayout>
 
+
             <!--line-->
             <View
                 android:id="@+id/line_content"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="#e5e5e5"
-                app:layout_constraintBottom_toTopOf="@+id/text_content_star"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/grid_content_ticket" />
 
             <TextView
                 android:id="@+id/text_content_star"
+                style="@style/CommentStar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_star_g"
-                android:padding="8dp"
+                android:drawableStart="@drawable/ic_star_grey"
                 android:text="@string/star"
-                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
+                android:padding="8dp"
+                app:layout_constraintHorizontal_bias="0.35"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line_content" />
 
             <TextView
                 android:id="@+id/text_content_comment"
+                style="@style/CommentStar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:drawableStart="@drawable/ic_write"
                 android:padding="8dp"
+                android:drawableStart="@drawable/ic_pen_grey"
                 android:text="@string/comment"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/text_content_star"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@+id/text_content_star"
-                app:layout_constraintTop_toTopOf="@+id/text_content_star" />
+                app:layout_constraintTop_toBottomOf="@+id/line_content" />
+
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 </layout>
