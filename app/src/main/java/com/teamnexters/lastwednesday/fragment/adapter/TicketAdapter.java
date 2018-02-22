@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,7 +14,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ramotion.foldingcell.FoldingCell;
 import com.teamnexters.lastwednesday.MainActivity;
@@ -112,8 +118,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
                 .subscribe(data -> {
                     addSelectedItem(data);
                     if (mActionMode != null) {
-                        mActionMode.setTitle(Html.fromHtml( "<font color = '#5fc8e4' >"+selectedList.size()+"</font>" +context.getString(R.string.select)));
-                         //선택된 항목의 개수를 액션바에 보여줌
+                        mActionMode.setTitle(Html.fromHtml("<font color = '#5fc8e4' >" + selectedList.size() + "</font>" + context.getString(R.string.select)));
+                        //선택된 항목의 개수를 액션바에 보여줌
                     }
                 });
     }
@@ -183,21 +189,29 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         checkedSubject.onComplete();
     }
 
-    static class TicketViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    static class TicketViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ItemTicketBinding binding;
-        TextView btn_rate;
-        TextView btn_comment;
+        TextView btn_rate_1;
+        TextView btn_comment_1;
+        TextView btn_rate_2;
+        TextView btn_comment_2;
 
         private TicketViewHolder(View itemView) {
             super(itemView);
             binding = DataBindingUtil.bind(itemView);
 
-            btn_rate = (TextView) itemView.findViewById(R.id.text_title_star);
-            btn_comment = (TextView) itemView.findViewById(R.id.text_title_comment);
+            btn_rate_1 = (TextView) itemView.findViewById(R.id.text_title_star);
+            btn_comment_1 = (TextView) itemView.findViewById(R.id.text_title_comment);
 
-            btn_rate.setOnClickListener(this);
-            btn_comment.setOnClickListener(this);
+            btn_rate_2 = (TextView) itemView.findViewById(R.id.text_content_star);
+            btn_comment_2 = (TextView) itemView.findViewById(R.id.text_content_comment);
+
+            btn_rate_1.setOnClickListener(this);
+            btn_comment_1.setOnClickListener(this);
+
+            btn_rate_2.setOnClickListener(this);
+            btn_comment_2.setOnClickListener(this);
         }
 
         private Observable<Ticket> getCheckedObservable(Ticket item) { //checkbox observable
@@ -223,14 +237,141 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.text_title_star:
-                    Dialog dialog_star = new Dialog(itemView.getContext(), R.style.custom_dialog);
-                    dialog_star.setContentView(R.layout.dialog_stared);
-                    dialog_star.show();
+                    Dialog dialog_star_1 = new Dialog(itemView.getContext(), R.style.custom_dialog);
+                    dialog_star_1.setContentView(R.layout.dialog_stared);
+                    RatingBar ratingBar_1 = (RatingBar) dialog_star_1.findViewById(R.id.rating_star);
+                    TextView btn_check_1 = (TextView) dialog_star_1.findViewById(R.id.btn_check);
+                    TextView btn_cancle_1 = (TextView) dialog_star_1.findViewById(R.id.btn_cancle);
+
+                    btn_check_1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(itemView.getContext(), String.valueOf(ratingBar_1.getRating()), Toast.LENGTH_LONG).show();
+                            dialog_star_1.dismiss();
+                        }
+                    });
+
+                    btn_cancle_1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog_star_1.dismiss();
+                        }
+                    });
+
+                    dialog_star_1.show();
                     break;
                 case R.id.text_title_comment:
-                    Dialog dialog_comment = new Dialog(itemView.getContext(), R.style.custom_dialog);
-                    dialog_comment.setContentView(R.layout.dialog_comment);
-                    dialog_comment.show();
+                    Dialog dialog_comment_1 = new Dialog(itemView.getContext(), R.style.custom_dialog);
+                    dialog_comment_1.setContentView(R.layout.dialog_comment);
+                    ImageView btn_close_1 = (ImageView) dialog_comment_1.findViewById(R.id.btn_close);
+                    TextView btn_complete_1 = (TextView) dialog_comment_1.findViewById(R.id.btn_complete);
+                    EditText edit_comment_1 = (EditText) dialog_comment_1.findViewById(R.id.edit_comment);
+
+                    btn_close_1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog_comment_1.dismiss();
+                        }
+                    });
+
+                    btn_complete_1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(itemView.getContext(), edit_comment_1.getText(), Toast.LENGTH_LONG).show();
+                            dialog_comment_1.dismiss();
+                        }
+                    });
+
+                    edit_comment_1.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+                            if (count == 0) {
+                                btn_complete_1.setTextColor(itemView.getResources().getColor(R.color.cGray2));
+                            } else {
+                                btn_complete_1.setTextColor(itemView.getResources().getColor(R.color.cSkyblue));
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+
+                        }
+                    });
+
+                    dialog_comment_1.show();
+                    break;
+                case R.id.text_content_star:
+                    Dialog dialog_star_2 = new Dialog(itemView.getContext(), R.style.custom_dialog);
+                    dialog_star_2.setContentView(R.layout.dialog_stared);
+                    RatingBar ratingBar_2 = (RatingBar) dialog_star_2.findViewById(R.id.rating_star);
+                    TextView btn_check_2 = (TextView) dialog_star_2.findViewById(R.id.btn_check);
+                    TextView btn_cancle_2 = (TextView) dialog_star_2.findViewById(R.id.btn_cancle);
+
+                    btn_check_2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(itemView.getContext(), String.valueOf(ratingBar_2.getRating()), Toast.LENGTH_LONG).show();
+                            dialog_star_2.dismiss();
+                        }
+                    });
+
+                    btn_cancle_2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog_star_2.dismiss();
+                        }
+                    });
+                    dialog_star_2.show();
+                    break;
+                case R.id.text_content_comment:
+                    Dialog dialog_comment_2 = new Dialog(itemView.getContext(), R.style.custom_dialog);
+                    dialog_comment_2.setContentView(R.layout.dialog_comment);
+                    ImageView btn_close_2 = (ImageView) dialog_comment_2.findViewById(R.id.btn_close);
+                    TextView btn_complete_2 = (TextView) dialog_comment_2.findViewById(R.id.btn_complete);
+                    EditText edit_comment_2 = (EditText) dialog_comment_2.findViewById(R.id.edit_comment);
+
+                    btn_close_2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog_comment_2.dismiss();
+                        }
+                    });
+
+                    btn_complete_2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(itemView.getContext(), edit_comment_2.getText(), Toast.LENGTH_LONG).show();
+                            dialog_comment_2.dismiss();
+                        }
+                    });
+
+                    edit_comment_2.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+                            if (count == 0) {
+                                btn_complete_2.setTextColor(itemView.getResources().getColor(R.color.cGray2));
+                            } else {
+                                btn_complete_2.setTextColor(itemView.getResources().getColor(R.color.cSkyblue));
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+
+                        }
+                    });
+
+                    dialog_comment_2.show();
                     break;
             }
         }
