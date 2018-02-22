@@ -1,14 +1,12 @@
 package com.teamnexters.lastwednesday.model;
 
 /**
- * Created by user on 2018-02-10.
+ * Created by user on 2018-02-22.
  */
 
 public class ShowRecentPlays {
-        public int img;
-        public ShowRecentPlays(int img){
-            this.img=img;
-        }
+    public String recentplay;
+    public ShowRecentPlays(String recentplay){
+        this.recentplay=recentplay;
     }
-
-
+}

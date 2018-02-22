@@ -2,67 +2,97 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:background="#f7f7f7"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.RecentSearchActivity">
 
-
-    <EditText
-        android:id="@+id/searchbar"
-        android:layout_width="330dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/SearchToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/searchshape"
-        android:drawableLeft="@drawable/ic_search_skyblue"
-        android:drawablePadding="5dp"
-        android:focusable="false"
-        android:clickable="true"
-        android:hint="검색어를 입력해주세요"
-        android:singleLine="true"
-        android:paddingLeft="14.7dp"
-        android:paddingRight="14.7dp"
-        android:textSize="16sp" />
+        android:background="@color/cSkyblue">
+        <ImageButton
+            android:id="@+id/backtomyticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_white"
+            android:background="#0000ffff"/>
 
+        <EditText
+            android:id="@+id/searchbar"
+            android:layout_width="330dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical"
+            android:background="#0000ffff"
+            android:clickable="true"
+            android:drawableLeft="@drawable/ic_search_white"
+            android:drawablePadding="5dp"
+            android:focusable="false"
+            android:hint="검색어를 입력해주세요"
+            android:paddingLeft="14.7dp"
+            android:paddingRight="14.7dp"
+            android:singleLine="true"
+            android:textColorHint="@color/cWhite"
+            android:textSize="16sp" />
 
-    <View
-        android:id="@+id/border"
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/searchbar"
-        android:layout_marginTop="11dp"
-        android:background="#e5e5e5" />
+    </android.support.v7.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/searchresulttext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/border"
-        android:layout_marginTop="11dp"
-        android:textSize="12sp"
-        android:textColor="@color/cBlack"
-        android:text="최근 검색한 작품" />
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_below="@id/SearchToolbar"
+    android:layout_marginTop="20dp"
+    android:text="최근 검색어"
+    android:textColor="@color/cSkyblue"
+    android:textAlignment="center"
+    android:textSize="20sp"
+    android:layout_centerVertical="true"
+    android:gravity="center"
+    android:background="@drawable/recentsearches"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="20dp"
+    />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerViewRecentPlays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/searchresulttext"
-        android:layout_marginTop="17dp"
-        android:layout_weight="1"
-        android:scrollbars="horizontal">
+        android:layout_below="@+id/SearchToolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="70dp"
+        android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_alignEnd="@+id/RecyclerViewRecentPlays"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/RecyclerViewRecentPlays"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/recentsearches_bottom"
+        android:paddingVertical="3dp"
+        android:text="전체 삭제"
+        android:textAlignment="textEnd"
+        android:textColor="@color/cSkyblue"
+        android:textSize="13sp" />
 
-    </android.support.v7.widget.RecyclerView>
+    <View
+        android:id="@+id/border"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="65dp"
+        android:layout_above="@+id/RecyclerViewRecentPlays"
+        android:layout_marginBottom="13dp"
+        android:background="#ffffff" />
 
 
 </RelativeLayout>
