@@ -5,7 +5,27 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="windowActionModeOverlay">true</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:actionModeCloseDrawable">@drawable/ic_close_skyblue</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/cWhite</item>
+    </style>
+
+    <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="titleTextStyle">@style/ActionTitleText</item>
+        <item name="background">@color/cWhite</item>
+    </style>
+
+    <style name="ActionTitleText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/cBlack</item>
     </style>
 
     <style name="ConstraintCenter">
@@ -22,17 +42,26 @@
     </style>
 
 
-    <style name = "TicketSpecificTitle">
-        <item name = "android:textSize">10sp</item>
-        <item name = "android:textStyle">bold</item>
+    <style name="TicketSpecificTitle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/cSkyblue</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name = "android:layout_height">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
-    <style name = "TicketSpecificContent">
-        <item name = "android:layout_marginLeft">17dp</item>
-        <item name = "android:textSize">10sp</item>
+
+    <style name="TicketSpecificContent">
+        <item name="android:layout_marginLeft">17dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/cBlack</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name = "android:layout_height">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CommentStar">
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:textColor">@color/cGray2</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="custom_dialog" parent="Theme.AppCompat.NoActionBar">
@@ -45,7 +74,24 @@
     </style>
 
     <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">@color/cOrange</item>
+        <item name="colorControlNormal">@color/cSkyblue</item>
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
+
+
+    <style name="TicketBtn">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/cSkyblue</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
 </resources>

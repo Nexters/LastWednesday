@@ -17,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center_vertical"
         android:background="@drawable/searchshape"
-        android:drawableLeft="@drawable/ic_search"
+        android:drawableLeft="@drawable/ic_search_skyblue"
         android:drawablePadding="5dp"
         android:focusable="false"
         android:clickable="true"

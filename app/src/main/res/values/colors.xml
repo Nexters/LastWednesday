@@ -6,9 +6,11 @@
 
 
     <color name="cWhite">#FFFFFF</color>
+    <color name="cWhite2">#F7F7F7</color>
     <color name="cBlack">#000000</color>
-    <color name="cOrange">#ed6c07</color>
     <color name="cGray1">#e0e0e0</color>
+    <color name="cGray2">#9A9A9A</color>
+    <color name="cSkyblue">#5fc8e4</color>
 
     <color name="dialog_black_back">#8C000000</color> <!-- 알파값 55% 적용 -->
 </resources>

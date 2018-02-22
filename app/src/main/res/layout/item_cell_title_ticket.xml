@@ -1,108 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android = "http://schemas.android.com/apk/res/android"
-    xmlns:app = "http://schemas.android.com/apk/res-auto"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
+        <import type="android.view.View" />
+
         <variable
-            name="title" type="String"/>
+            name="isLongClicked"
+            type="boolean" />
+
         <variable
-            name="date" type="String"/>
+            name="isSelected"
+            type="boolean" />
+
         <variable
-            name="concertHall" type="String"/>
+            name="title"
+            type="String" />
+
+        <variable
+            name="date"
+            type="String" />
+
+        <variable
+            name="concertHall"
+            type="String" />
+
+        <import
+            alias="Mode"
+            type="android.graphics.PorterDuff.Mode" />
     </data>
 
     <LinearLayout
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:layout_marginBottom="9dp"
-        >
-    <android.support.constraint.ConstraintLayout
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:background = "@drawable/background_ticket"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
 
-        <ImageView
-            android:id = "@+id/image_title_ticket"
-            android:layout_width = "80dp"
-            android:layout_height = "123dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src = "#999999"
-            />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="@dimen/ticket_cell_margin"
+            android:background="@drawable/background_ticket">
 
-        <TextView
-            android:id = "@+id/text_title_title"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:layout_marginStart = "10dp"
-            android:layout_marginTop="13dp"
-            android:text = "@{title}"
-            android:textSize = "14sp"
-            android:textStyle = "bold"
-            app:layout_constraintStart_toEndOf = "@+id/image_title_ticket"
-            app:layout_constraintTop_toTopOf = "@+id/image_title_ticket"
-            />
+            <CheckBox
+                android:id="@+id/check_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/cSkyblue"
+                android:checked="@{isSelected ? true : false }"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:visibility="@{ isLongClicked ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id = "@+id/text_title_date"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:text = "@{date}"
-            android:textSize = "12sp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_title_title"
-            app:layout_constraintStart_toStartOf="@+id/text_title_title"
-            />
+            <ImageView
+                android:id="@+id/image_title_ticket"
+                android:layout_width="110dp"
+                android:layout_height="149dp"
+                android:src="@color/cGray2"
+                android:tint="@{isSelected ? @color/cSkyblue : @android:color/transparent}"
+                android:tintMode="@{ isSelected ? Mode.MULTIPLY : Mode.ADD }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@+id/check_ticket"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id = "@+id/text_title_hall"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:text = "@{concertHall}"
-            android:textSize = "12sp"
-            app:layout_constraintStart_toStartOf = "@+id/text_title_title"
-            app:layout_constraintTop_toBottomOf = "@+id/text_title_date"
-            />
+            <TextView
+                android:id="@+id/text_title_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:maxLines="1"
+                android:text="@{title}"
+                android:textColor="@color/cSkyblue"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_title_ticket"
+                app:layout_constraintTop_toTopOf="@+id/image_title_ticket"
+                app:layout_constraintVertical_bias="0.1" />
 
-        <!--line-->
-        <View
-            android:id="@+id/line_title"
-            android:layout_width = "0dp"
-            android:layout_height = "0.3dp"
-            android:background="#e5e5e5"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toEndOf="@+id/image_title_ticket"
-            app:layout_constraintTop_toBottomOf="@+id/text_title_hall"
-          />
+            <TextView
+                android:id="@+id/text_title_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{date}"
+                android:textColor="@color/cBlack"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/text_title_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_title_title"
+                app:layout_constraintVertical_bias="0.2" />
 
-        <TextView
-            android:id="@+id/text_title_star"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:drawableStart="@drawable/ic_star_g"
-            app:layout_constraintStart_toStartOf="@+id/text_title_title"
-            app:layout_constraintTop_toBottomOf="@+id/line_title"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/star"
-            android:textSize="10sp"
-            />
+            <TextView
+                android:id="@+id/text_title_hall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{concertHall}"
+                android:textColor="@color/cBlack"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/text_title_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_title_date" />
 
-        <TextView
-            android:id="@+id/text_title_comment"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:drawableStart="@drawable/ic_write"
-            app:layout_constraintStart_toEndOf="@+id/text_title_star"
-            app:layout_constraintTop_toTopOf="@+id/text_title_star"
-            app:layout_constraintBottom_toBottomOf="@+id/text_title_star"
-            android:text="@string/comment"
-            android:layout_marginStart="10dp"
-            android:textSize="10sp"
-            />
+            <!--line-->
+            <View
+                android:id="@+id/line_title"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#e5e5e5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_title_ticket"
+                app:layout_constraintTop_toBottomOf="@+id/text_title_hall" />
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/text_title_star"
+                style="@style/CommentStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_star_grey"
+                android:text="@string/star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/text_title_title"
+                app:layout_constraintTop_toBottomOf="@+id/line_title"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/text_title_comment"
+                style="@style/CommentStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawableStart="@drawable/ic_pen_grey"
+                android:text="@string/comment"
+                app:layout_constraintBottom_toBottomOf="@+id/text_title_star"
+                app:layout_constraintStart_toEndOf="@+id/text_title_star"
+                app:layout_constraintTop_toTopOf="@+id/text_title_star" />
+
+        </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 </layout>
