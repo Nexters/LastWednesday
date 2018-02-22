@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/recyclerview_recentplay"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    cardview:cardElevation="5sp">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/RecyclerViewPlaysSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/recentplay_background"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/recent_play_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="18dp"
+            android:text="PLAY"
+            android:textColor="@color/cBlack"
+            android:textSize="18sp" />
 
-            <ImageView
-                android:id="@+id/poster"
-                android:layout_width="100dp"
-                android:layout_height="123.7dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="4dp"
-                android:background="@color/colorPrimary" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/recent_play_name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="13dp"
+            android:background="#0000ffff"
+            android:src="@drawable/ic_close_grey" />
+    </RelativeLayout>
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+</android.support.v7.widget.CardView>
