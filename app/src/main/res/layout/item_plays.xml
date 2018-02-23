@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     >
 
     <android.support.v7.widget.CardView
-        android:id="@+id/RecyclerViewPlaysSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/plays_cardview_background"
@@ -19,23 +19,23 @@
 
             <ImageView
                 android:id="@+id/poster"
-                android:layout_width="86.3dp"
-                android:layout_height="123.7dp"
+                android:layout_width="86dp"
+                android:layout_height="126dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:background="@color/colorPrimary" />
+            />
 
             <TextView
                 android:id="@+id/play_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/poster"
-                android:layout_marginLeft="113dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="16dp"
                 android:layout_toEndOf="@+id/poster"
                 android:textSize="20sp"
                 android:textColor="@color/cBlack"
-                android:text="TextView" />
+            />
 
             <TextView
                 android:id="@+id/play_date"
@@ -44,7 +44,7 @@
                 android:layout_alignStart="@+id/play_title"
                 android:layout_below="@+id/play_title"
                 android:layout_marginTop="12.7dp"
-                android:text="TextView" />
+             />
 
             <TextView
                 android:id="@+id/play_place"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/play_date"
                 android:layout_below="@+id/play_date"
-                android:text="TextView" />
+              />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

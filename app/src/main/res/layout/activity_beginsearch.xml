@@ -68,10 +68,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="70dp"
-        android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+        android:scrollbars="vertical"/>
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_alignEnd="@+id/RecyclerViewRecentPlays"
@@ -86,7 +85,6 @@
         android:textSize="13sp" />
 
     <View
-        android:id="@+id/border"
         android:layout_width="270dp"
         android:layout_height="1dp"
         android:layout_marginLeft="65dp"

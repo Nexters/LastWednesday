@@ -50,16 +50,27 @@ public class PlayInfoActivity extends AppCompatActivity {
         return bitmap;
     }
 
+    public void onBackArrowClick(View v) {
+        onBackPressed();
+    }
+
 
     public void onSubMenuClick(View v) {
         int id = v.getId();
 
         switch (id) {
             case R.id.text_play_wishlist:
-                Toast.makeText(getApplicationContext(), "위시리스트에 추가했습니다", Toast.LENGTH_SHORT).show();
-                binding.getObj().setWish(true);
+                if (!binding.getObj().isWish()) {
+                    Toast.makeText(getApplicationContext(), "위시리스트에 추가했습니다", Toast.LENGTH_SHORT).show();
+                    binding.getObj().setWish(true);
+                } else {
+                    Toast.makeText(getApplicationContext(), "위시리스트에서 제외되었습니다", Toast.LENGTH_SHORT).show();
+                    binding.getObj().setWish(false);
+                }
                 break;
 
         }
+
     }
 }
+

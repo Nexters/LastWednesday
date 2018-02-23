@@ -104,9 +104,11 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
     public void onBindViewHolder(TicketViewHolder holder, int position) {
         Ticket ticket = dataSet.get(position);
         holder.binding.setObj(ticket);
+        holder.binding.cellTitleTicket.imageTitleTicket.setImageDrawable(context.getResources().getDrawable(ticket.getPoster()));
         holder.getLongClickObservable().subscribe(longClickSubject);
         holder.getCheckedObservable(ticket).subscribe(checkedSubject);
     }
+
 
     @Override
     public int getItemCount() {

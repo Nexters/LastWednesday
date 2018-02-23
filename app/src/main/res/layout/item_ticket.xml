@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android = "http://schemas.android.com/apk/res/android"
-    xmlns:app = "http://schemas.android.com/apk/res-auto"
-    >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
-            name = "obj"
-            type = "com.teamnexters.lastwednesday.model.Ticket"
-            />
+            name="obj"
+            type="com.teamnexters.lastwednesday.model.Ticket" />
     </data>
 
 
     <com.ramotion.foldingcell.FoldingCell
-        android:id = "@+id/folding_ticket"
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        app:backSideColor = "#F4F4F4"
-        >
+        android:id="@+id/folding_ticket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backSideColor="#F4F4F4">
 
         <include
             android:id="@+id/cell_content_ticket"
-            layout = "@layout/item_cell_content_ticket"
-            app:age = "@{obj.age}"
-            app:casts = "@{obj.casts}"
-            app:concertHall = "@{obj.concertHall}"
-            app:crews = "@{obj.crews}"
-            app:date = "@{obj.date}"
-            app:genre = "@{obj.genre}"
-            app:running = "@{obj.running}"
-            app:title = "@{obj.title}"
-            />
+            layout="@layout/item_cell_content_ticket"
+            app:age="@{obj.age}"
+            app:casts="@{obj.casts}"
+            app:concertHall="@{obj.concertHall}"
+            app:crews="@{obj.crews}"
+            app:date="@{obj.date}"
+            app:poster="@{obj.poster}"
+            app:genre="@{obj.genre}"
+            app:running="@{obj.running}"
+            app:title="@{obj.title}" />
 
         <include
             android:id="@+id/cell_title_ticket"
-            layout = "@layout/item_cell_title_ticket"
-            app:concertHall = "@{obj.concertHall}"
-            app:date = "@{obj.date}"
-            app:title = "@{obj.title}"
-            app:isSelected = "@{obj.isSelected}"
-            app:isLongClicked = "@{obj.isLongClicked}"
-            />
+            layout="@layout/item_cell_title_ticket"
+            app:poster="@{obj.poster}"
+            app:concertHall="@{obj.concertHall}"
+            app:date="@{obj.date}"
+            app:isLongClicked="@{obj.isLongClicked}"
+            app:isSelected="@{obj.isSelected}"
+            app:title="@{obj.title}" />
     </com.ramotion.foldingcell.FoldingCell>
 
 </layout>
