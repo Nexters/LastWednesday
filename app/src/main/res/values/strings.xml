@@ -2,7 +2,6 @@
     <string name="app_name">LastWednesday</string>
     <string name="facebook_app_id">212782095949337</string>
     <string name="fb_login_protocol_scheme">fb212782095949337</string>
-    <string name="server_client_id">964138090496-ueb0pmmhkmg7q6c54vr5gi6u96dj26l9.apps.googleusercontent.com</string>
 
 
     <string name="star">별점매기기</string>
@@ -32,5 +31,5 @@
     <string name="btn_complete">완료</string>
     <string name="my_ticket">MY 티켓북</string>
     <string name="my_wishlist">My 위시리스트</string>
-
+<string name="search_tag"># 태그 검색 설정</string>
 </resources>

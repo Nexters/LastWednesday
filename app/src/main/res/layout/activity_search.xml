@@ -1,79 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.teamnexters.lastwednesday.activity.SearchActivity" />
+    </data>
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/SearchToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/cSkyblue">
-        <ImageButton
-            android:id="@+id/backtosearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_back_white"
-            android:background="#0000ffff"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/search"
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/SearchToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_gravity="center_vertical"
-            android:background="#0000ffff"
+            android:background="@color/cSkyblue">
+
+            <ImageButton
+                android:id="@+id/backtosearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#0000ffff"
+                android:src="@drawable/ic_arrow_back_white" />
+
+            <EditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_search_white"
+                android:hint="검색어를 입력해주세요"
+                android:singleLine="true"
+                android:textColor="@color/cWhite"
+                android:textColorHint="@color/cWhite"
+                android:textSize="16sp" />
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/searchresult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/RecyclerViewPlays"
+            android:layout_below="@+id/SearchToolbar"
+            android:layout_marginTop="13dp"
+            android:text="검색결과"
+            android:textColor="@color/cBlack"
+            android:textSize="15sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/RecyclerViewPlays"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="100dp"
+            android:layout_weight="1">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/btn_search_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/cSkyblue"
+            android:text="@string/search_tag"
+            android:onClick="@{activity::onTagBtnClick}"
             android:textColor="@color/cWhite"
-            android:drawableLeft="@drawable/ic_search_white"
-            android:drawablePadding="5dp"
-            android:hint="검색어를 입력해주세요"
-            android:paddingLeft="14.7dp"
-            android:paddingRight="14.7dp"
-            android:singleLine="true"
-            android:textColorHint="@color/cWhite"
-            android:textSize="16sp" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
 
-    </android.support.v7.widget.Toolbar>
-
-    <TextView
-        android:id="@+id/searchresult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/RecyclerViewPlays"
-        android:layout_below="@+id/SearchToolbar"
-        android:layout_marginTop="13dp"
-        android:text="검색결과"
-        android:textColor="@color/cBlack"
-        android:textSize="15sp" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/RecyclerViewPlays"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_weight="1">
-
-
-    </android.support.v7.widget.RecyclerView>
-
-    <View
-        android:id="@+id/border"
-        android:layout_width="270dp"
-        android:layout_height="1dp"
-        android:layout_alignBottom="@+id/SearchToolbar"
-        android:layout_marginLeft="65dp"
-        android:layout_marginBottom="13dp"
-        android:background="#ffffff" />
-
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

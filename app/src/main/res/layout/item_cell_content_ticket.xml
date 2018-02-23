@@ -35,13 +35,17 @@
         <variable
             name="crews"
             type="String" />
+
+        <variable
+            name="poster"
+            type="int" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -64,10 +68,12 @@
 
             <ImageView
                 android:id="@+id/image_content_ticket"
+                imageResource="@{poster}"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:scaleType="centerCrop"
-                android:src="@color/cGray2"
+                android:tintMode="multiply"
+                android:tint="#3e879b"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_content_title" />
@@ -92,8 +98,8 @@
                 android:id="@+id/text_content_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{date}"
                 android:alpha="0.7"
+                android:text="@{date}"
                 android:textColor="@color/cWhite"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/image_content_ticket"
@@ -105,8 +111,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="@{concertHall}"
                 android:alpha="0.7"
+                android:text="@{concertHall}"
                 android:textColor="@color/cWhite"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/image_content_ticket"
@@ -120,11 +126,11 @@
                 android:columnCount="2"
                 android:padding="@dimen/ticket_padding"
                 android:useDefaultMargins="true"
-                app:layout_constraintVertical_bias="0"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_content_ticket">
+                app:layout_constraintTop_toBottomOf="@+id/image_content_ticket"
+                app:layout_constraintVertical_bias="0">
 
                 <TextView
                     style="@style/TicketSpecificTitle"
@@ -176,10 +182,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_star_grey"
+                android:padding="8dp"
                 android:text="@string/star"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:padding="8dp"
                 app:layout_constraintHorizontal_bias="0.35"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line_content" />
@@ -189,12 +195,12 @@
                 style="@style/CommentStar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
                 android:drawableStart="@drawable/ic_create_grey"
+                android:padding="8dp"
                 android:text="@string/comment"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@+id/text_content_star"
                 app:layout_constraintTop_toBottomOf="@+id/line_content" />
 

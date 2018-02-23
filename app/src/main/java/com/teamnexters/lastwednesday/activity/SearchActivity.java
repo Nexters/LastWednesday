@@ -1,6 +1,7 @@
 package com.teamnexters.lastwednesday.activity;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.teamnexters.lastwednesday.R;
+import com.teamnexters.lastwednesday.databinding.ActivitySearchBinding;
 import com.teamnexters.lastwednesday.fragment.adapter.SearchAdapter;
 import com.teamnexters.lastwednesday.model.Play;
 
@@ -25,6 +27,7 @@ import java.util.List;
  */
 
 public class SearchActivity extends AppCompatActivity {
+    ActivitySearchBinding binding;
     private RecyclerView mRecyclerView;
     public EditText search;
     public ImageButton Backtosearch;
@@ -36,7 +39,8 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_search);
+        binding.setActivity(this);
 
         search = findViewById(R.id.search);
         searchresults = findViewById(R.id.searchresult);
@@ -82,7 +86,7 @@ public class SearchActivity extends AppCompatActivity {
         myDataset.add(new Play("명성황후", "2018.05.11~2018.05.13", "울산문화예술회관 대공연장", "드라마", "150분",
                 "만 7세 이상", "김소현, 양준보, 오종혁 등", "", R.drawable.myeongseong, false));
         myDataset.add(new Play("광화문연가", "2018.03.02~2018.03.04", "광주문화예술회관 대극장", "드라마", "150분",
-                "만 7세 이상", "안재욱, 차지연, 바강현, 이연경 등", "", R.drawable.kwmyg, false));
+                "만 7세 이상", "안재욱, 차지연, 바강현, 이연경 등", "연출-이지나, 극본-고선웅, 음악감독-김성수", R.drawable.kwmyg, false));
         myDataset.add(new Play("루나틱", "2017.09.20~2018.03.31", "대학로 문 씨어터", "드라마", "100분",
                 "만 13세 이상", "엄선영, 차재성, 정효정, 방보용 등", "", R.drawable.lunatic, false));
         myDataset.add(new Play("마마돈크라이", "2018.03.23~2018.07.01", "대학로 아트원씨어터 1관", "드라마, 판타지", "100분",
@@ -99,16 +103,6 @@ public class SearchActivity extends AppCompatActivity {
                 "전체관람가", "김흥남, 김병남", "", R.drawable.hero, false));
         myDataset.add(new Play("홀연했던 사나이", "2018.02.06~2018.04.15", "충무아트센터 중극장 블랙", "드라마", "110분",
                 "만 7세 이상", "정민, 오종혁, 강영석, 임진아 등", "", R.drawable.dude, false));
-        myDataset.add(new Play("레드북", "2018.02.06~2018.03.30", "세종문화회관 M씨어터", "드라마", "160분",
-                "만 12세 이상", "아이비, 박은석, 홍우진, 원종환 등", "", R.drawable.redbook, false));
-        myDataset.add(new Play("최후진술", "2017.12.10~2018.02.25", "충무아트센터 소극장 블루", "드라마", "100분",
-                "만 13세 이상", "이승현, 박규원, 양지원, 유성재 등", "", R.drawable.laststate, false ));
-        myDataset.add(new Play("마이 버킷 리스트", "2018.02.04~2018.03.18", "CJ아지트 대학로", "드라마,", "100분",
-                "만 12세 이상", "박유덕, 주민진, 김지휘 등", "", R.drawable.mybucketlist, false));
-        myDataset.add(new Play("투모로우 모닝", "2018.03.01~2018.03.31", "대학로 JTN 아트홀 2관", "드라마", "100분", "" +
-                "만 13세 이상", "고유진, 김경선, 오진영 등", "",  R.drawable.tmorning, false));
-        myDataset.add(new Play("그대와 영원히", "2018.01.31~2018.03.31", "대학로 한성아트홀 2관", "드라마", "110분",
-                "만 12세 이상", "조준휘, 김대권, 이시후 등", "", R.drawable.wuforever, false));
         myDataset.add(new Play("안나카레리나", "2018.03.10~2018.03.11", "한국소리문화의전당 모악당", "드라마, 픽션", "150분",
                 "8세 이상","옥주현, 이지훈, 황성현, 기세중 등", "알리나 체비크", R.drawable.anna, false));
         myDataset.add(new Play("아이러브유", "2017.12.14~2018.03.11", "대학로 아트원씨어터 1관" , "드라마, 로맨스", "130분",
@@ -116,13 +110,7 @@ public class SearchActivity extends AppCompatActivity {
         myDataset.add(new Play("꽃보다 슈퍼스타", "2017.04.01~2018.03.31", "마로니에 극장", "드라마", "90분",
                 "7세 이상", "오선미, 김다솔, 김은재, 정여은 등", "", R.drawable.superstar, true));
         myDataset.add(new Play("광화문연가", "2018.02.23~2018.02.25", "인천문화예술회관 대공연장", "드라마", "150분",
-                "만 7세 이상", "안재욱, 차지연, 바강현, 이연경 등", "", R.drawable.kwmyg, true));
-        myDataset.add(new Play("모래시계", "2018.02.23~2018.02.25", "광주문화예술회관 대극장", "드라마", "170분",
-                "만 7세 이상", "김우형, 김지현, 최재웅, 김산호 등", "", R.drawable.sandclock, false));
-        myDataset.add(new Play("더 라스트 키스", "2017.12.15~2018.03.11", "LG 아트센터","드라마", "170분",
-                "만 7세 이상", "카이, 레오, 수호, 루나, 민영기 등", "", R.drawable.lastkiss, true));
-        myDataset.add(new Play("브라더스 까라마조프", "2018.02.10~2018.04.15", "수현재씨어터", "드라마", "100분",
-                "만 13세 이상", "심재현, 조풍래, 김지철, 이휘종 등", "", R.drawable.brothers, false));
+                "만 7세 이상", "안재욱, 차지연, 바강현, 이연경 등", "연출-이지나, 극본-고선웅, 음악감독-김성수, ", R.drawable.kwmyg, true));
 
         addTextListener();
     }
@@ -159,6 +147,9 @@ public class SearchActivity extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();  // data set changed
             }
         });
+    }
+    public void onTagBtnClick(View v) {
+        startActivity(new Intent(getApplicationContext(), TagActivity.class));
     }
 }
 

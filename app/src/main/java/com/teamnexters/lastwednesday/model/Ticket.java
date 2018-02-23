@@ -25,6 +25,11 @@ public class Ticket extends BaseObservable {
     private String casts;
     private String crews;
 
+    private String star;
+    private String comment;
+
+    private int poster;
+
     private boolean isLongClicked;
     private boolean isSelected;
 
@@ -38,7 +43,7 @@ public class Ticket extends BaseObservable {
         notifyPropertyChanged(BR.longClicked);
     }
 
-    public Ticket ( String title, String date, String concertHall, String genre, String running, String age, String casts, String crews, boolean isLongClicked ) {
+    public Ticket ( String title, String date, String concertHall, String genre, String running, String age, String casts, String crews, int poster, boolean isLongClicked ) {
         this.title = title;
         this.date = date;
         this.concertHall = concertHall;
@@ -47,6 +52,7 @@ public class Ticket extends BaseObservable {
         this.age = age;
         this.casts = casts;
         this.crews = crews;
+        this.poster = poster;
         this.isLongClicked = isLongClicked;
     }
 
@@ -91,5 +97,13 @@ public class Ticket extends BaseObservable {
     public void setSelected ( boolean selected ) {
         isSelected = selected;
         notifyPropertyChanged(BR.selected);
+    }
+
+    public int getPoster() {
+        return poster;
+    }
+
+    public void setPoster(int poster) {
+        this.poster = poster;
     }
 }
