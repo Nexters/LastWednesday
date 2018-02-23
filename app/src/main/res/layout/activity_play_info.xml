@@ -2,6 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="activity"
+            type="com.teamnexters.lastwednesday.activity.PlayInfoActivity" />
+
+        <variable
+            name="obj"
+            type="com.teamnexters.lastwednesday.model.Play" />
+    </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,8 +23,8 @@
             android:id="@+id/image_play_ticket"
             style="@style/ConstraintTop"
             android:layout_width="0dp"
-            android:layout_height="295dp"
-            android:src="#000000" />
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="2:1.7" />
 
         <ImageView
             style="@style/ConstraintTop"
@@ -30,7 +40,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/border_white"
             android:padding="5dp"
-            android:text="장르"
+            android:text="@{obj.genre}"
             android:textColor="@color/cWhite"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
@@ -46,7 +56,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="9dp"
             android:gravity="center"
-            android:text="제목"
+            android:text="@{obj.title}"
             android:textColor="@color/cWhite"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -58,7 +68,7 @@
             android:id="@+id/text_play_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2018.01.01 ~ 2018.03.02"
+            android:text="@{obj.date}"
             android:textColor="@color/cWhite"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -73,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:text="동숭아트센터(동숭홀)"
+            android:text="@{obj.concertHall}"
             android:textColor="@color/cWhite"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
@@ -96,8 +106,10 @@
         <TextView
             android:id="@+id/text_play_wishlist"
             style="@style/PlayInfoBtn"
-            android:drawableStart="@drawable/ic_favorite_white"
-            android:text="@string/wishlist"
+            android:drawableStart="@{ obj.wish ? @drawable/ic_favorite_black : @drawable/ic_favorite_white}"
+            android:onClick="@{activity::onSubMenuClick}"
+            android:text="@{ obj.wish ? @string/my_wishlist : @string/wishlist}"
+            android:textColor="@{ obj.wish ? @color/cBlack : @color/cWhite }"
             app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
             app:layout_constraintEnd_toStartOf="@+id/text_play_star"
             app:layout_constraintHorizontal_bias="1"
@@ -109,6 +121,7 @@
             style="@style/PlayInfoBtn"
             android:drawableStart="@drawable/ic_star_white"
             android:text="@string/star"
+            android:textColor="@color/cWhite"
             app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/text_play_wishlist"
@@ -120,6 +133,7 @@
             style="@style/PlayInfoBtn"
             android:drawableStart="@drawable/ic_create_white"
             android:text="@string/comment"
+            android:textColor="@color/cWhite"
             app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -129,14 +143,14 @@
 
         <GridLayout
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/cWhite"
             android:layout_marginTop="10dp"
             android:columnCount="1"
             android:paddingEnd="15dp"
             android:paddingStart="15dp"
             android:paddingTop="5dp"
             android:useDefaultMargins="true"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_background">
@@ -151,6 +165,7 @@
 
             <TextView
                 android:layout_marginBottom="10dp"
+                android:text="@{obj.running}"
                 android:textColor="@color/cBlack"
                 android:textSize="14sp" />
 
@@ -168,6 +183,7 @@
 
             <TextView
                 android:layout_marginBottom="10dp"
+                android:text="@{obj.age}"
                 android:textColor="@color/cBlack"
                 android:textSize="14sp" />
 
@@ -186,6 +202,7 @@
 
             <TextView
                 android:layout_marginBottom="10dp"
+                android:text="@{obj.casts}"
                 android:textColor="@color/cBlack"
                 android:textSize="14sp" />
 
@@ -204,8 +221,15 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:text="@{obj.crews}"
                 android:textColor="@color/cBlack"
                 android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/cGray1" />
 
         </GridLayout>
 

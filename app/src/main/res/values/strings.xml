@@ -31,5 +31,6 @@
     <string name="btn_check">확인</string>
     <string name="btn_complete">완료</string>
     <string name="my_ticket">MY 티켓북</string>
+    <string name="my_wishlist">My 위시리스트</string>
 
 </resources>
