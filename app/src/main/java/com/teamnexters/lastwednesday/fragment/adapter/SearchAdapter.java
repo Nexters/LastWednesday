@@ -8,33 +8,49 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.teamnexters.lastwednesday.R;
-import com.teamnexters.lastwednesday.model.MyData;
+import com.teamnexters.lastwednesday.model.Play;
 
 import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.subjects.PublishSubject;
 
 /**
  * Created by user on 2018-02-10.
  */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHolder> {
-    private List<MyData> mDataset;
+    private List<Play> mDataset;
+    private PublishSubject<Play> mPublishSubject;
 
-    public SearchAdapter(List<MyData> myDataset) {
-        mDataset = myDataset;
+    public SearchAdapter(List<Play> myDataset) {
+        this.mDataset = myDataset;
+        this.mPublishSubject = PublishSubject.create();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public ImageView mImageView;
-        public TextView mplaytitle;
-        public TextView mplaydate;
-        public TextView mplayplace;
+    public PublishSubject<Play> getmPublishSubject() {
+        return mPublishSubject;
+    }
 
-        public MyViewHolder(View itemLayoutView) {
+
+    static class MyViewHolder extends RecyclerView.ViewHolder {
+        private ImageView mImageView;
+        private TextView mplaytitle;
+        private TextView mplaydate;
+        private TextView mplayplace;
+
+        private MyViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             mImageView = (ImageView) itemLayoutView.findViewById(R.id.poster);
             mplaytitle = (TextView) itemLayoutView.findViewById(R.id.play_title);
-            mplaydate = (TextView)itemLayoutView.findViewById(R.id.play_date);
-            mplayplace = (TextView)itemLayoutView.findViewById(R.id.play_place);
+            mplaydate = (TextView) itemLayoutView.findViewById(R.id.play_date);
+            mplayplace = (TextView) itemLayoutView.findViewById(R.id.play_place);
 
+        }
+
+        private Observable<Play> getClickObservable( Play play) {
+            return Observable.create( e -> {
+                itemView.setOnClickListener(view -> e.onNext(play));
+            });
         }
     }
 
@@ -49,12 +65,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(final SearchAdapter.MyViewHolder viewHolder, final int position) {
-        viewHolder.mplaytitle.setText(mDataset.get(position).text);
-        viewHolder.mplaydate.setText(mDataset.get(position).text2);
-        viewHolder.mplayplace.setText(mDataset.get(position).text3);
-        viewHolder.mImageView.setImageResource(mDataset.get(position).img);
-    }
+        Play play = mDataset.get(position);
+        viewHolder.mplaytitle.setText(mDataset.get(position).getTitle());
+        viewHolder.mplaydate.setText(mDataset.get(position).getDate());
+        viewHolder.mplayplace.setText(mDataset.get(position).getConcertHall());
+        viewHolder.mImageView.setImageResource(mDataset.get(position).getPoster());
 
+        viewHolder.getClickObservable(play).subscribe(mPublishSubject);
+
+    }
 
 
     @Override

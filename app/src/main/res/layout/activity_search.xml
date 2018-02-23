@@ -29,6 +29,7 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
             android:background="#0000ffff"
+            android:textColor="@color/cWhite"
             android:drawableLeft="@drawable/ic_search_white"
             android:drawablePadding="5dp"
             android:hint="검색어를 입력해주세요"
