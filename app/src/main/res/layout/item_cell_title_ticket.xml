@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:drawableStart="@drawable/ic_pen_grey"
+                android:drawableStart="@drawable/ic_create_grey"
                 android:text="@string/comment"
                 app:layout_constraintBottom_toBottomOf="@+id/text_title_star"
                 app:layout_constraintStart_toEndOf="@+id/text_title_star"
