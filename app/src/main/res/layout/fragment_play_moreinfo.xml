@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cWhite2">
+
+
+        <ImageView
+            android:id="@+id/image_play_ticket"
+            style="@style/ConstraintTop"
+            android:layout_width="0dp"
+            android:layout_height="295dp"
+            android:src="#000000" />
+
+        <ImageView
+            style="@style/ConstraintTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back_white"
+            app:layout_constraintHorizontal_bias="0" />
+
+        <TextView
+            android:id="@+id/text_play_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_white"
+            android:padding="5dp"
+            android:text="장르"
+            android:textColor="@color/cWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/text_play_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:text="제목"
+            android:textColor="@color/cWhite"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_play_genre" />
+
+        <TextView
+            android:id="@+id/text_play_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018.01.01 ~ 2018.03.02"
+            android:textColor="@color/cWhite"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_play_genre"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <TextView
+            android:id="@+id/text_play_hall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="동숭아트센터(동숭홀)"
+            android:textColor="@color/cWhite"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_play_date"
+            app:layout_constraintVertical_bias="0" />
+
+        <View
+            android:id="@+id/view_background"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:alpha="0.2"
+            android:background="@color/cWhite"
+            android:backgroundTintMode="multiply"
+            app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/text_play_wishlist"
+            style="@style/PlayInfoBtn"
+            android:drawableStart="@drawable/ic_favorite_white"
+            android:text="@string/wishlist"
+            app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
+            app:layout_constraintEnd_toStartOf="@+id/text_play_star"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_background" />
+
+        <TextView
+            android:id="@+id/text_play_star"
+            style="@style/PlayInfoBtn"
+            android:drawableStart="@drawable/ic_star_white"
+            android:text="@string/star"
+            app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_play_wishlist"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_background" />
+
+        <TextView
+            android:id="@+id/text_play_comment"
+            style="@style/PlayInfoBtn"
+            android:drawableStart="@drawable/ic_create_white"
+            android:text="@string/comment"
+            app:layout_constraintBottom_toBottomOf="@+id/image_play_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/text_play_star"
+            app:layout_constraintTop_toTopOf="@+id/view_background" />
+
+
+        <GridLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:columnCount="1"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingTop="5dp"
+            android:useDefaultMargins="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_background">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/running"
+                android:textColor="@color/cSkyblue"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/cBlack"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/cGray1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/view_age"
+                android:textColor="@color/cSkyblue"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/cBlack"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/cGray1" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cast"
+                android:textColor="@color/cSkyblue"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/cBlack"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/cGray1" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/crew"
+                android:textColor="@color/cSkyblue"
+                android:textSize="12sp" />
+
+            <TextView
+                android:textColor="@color/cBlack"
+                android:textSize="14sp" />
+
+        </GridLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

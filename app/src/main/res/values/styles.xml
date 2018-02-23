@@ -93,5 +93,14 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="PlayInfoBtn">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/cWhite</item>
+        <item name="android:drawablePadding">1dp</item>
+    </style>
+
 
 </resources>
